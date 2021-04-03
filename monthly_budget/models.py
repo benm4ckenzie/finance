@@ -15,3 +15,11 @@ class Payment(models.Model):
 
     def __str__(self):
         return self.payment_recipient
+
+
+class Income(models.Model):
+    income_stream = models.CharField(max_length=50, null=False, blank=False)
+    income_amount = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False)
+
+    def __str__(self):
+        return self.income_stream

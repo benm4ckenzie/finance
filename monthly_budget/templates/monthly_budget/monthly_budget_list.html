@@ -6,6 +6,30 @@
     <title>Document</title>
 </head>
 <body>
-    <p>This is an example</p>
+    <p>Monthly direct debits</p>
+    <table>
+            {% for payment in payments %}            
+            <tr>
+                {% if payment.has_paid %}
+                    <td><strike>{{ payment.payment_recipient }}</strike></td>
+                {% else %}
+                    <td>{{ payment.payment_recipient }}</td>
+                {% endif %}
+                    <td>{{ payment.instalment_amount }}</td>
+                    <td>{{ payment.payment_account }}</td>
+                    <td>{{ payment.payment_date }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>There are no payments to be made.</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <p>
+        {% for payment in payments %}
+        
+    {% endfor %}
+    </p>
 </body>
 </html>

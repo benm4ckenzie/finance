@@ -1,7 +1,15 @@
 from django.shortcuts import render
+from .models import Payment
+from .models import Income
 
 # Create your views here.
 
 
 def get_monthly_budget_list(request):
-    return render(request, 'monthly_budget/monthly_budget_list.html')
+    payments = Payment.objects.all()
+    incomes = Income.objects.all()
+    context = {
+        'payments' : payments,
+        'incomes' : incomes
+    }
+    return render(request, 'monthly_budget/monthly_budget_list.html', context)
