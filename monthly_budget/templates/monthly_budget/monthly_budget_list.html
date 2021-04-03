@@ -26,10 +26,17 @@
         {% endfor %}
     </table>
 
-    <p>
-        {% for payment in payments %}
-        
-    {% endfor %}
-    </p>
+    <table>
+            {% for income in incomes %}            
+                <tr>
+                    <td>{{ income.income_stream }}</td>
+                    <td>{{ income.income_amount }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td>There is no household income.</td>
+                </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
