@@ -13,3 +13,11 @@ def get_monthly_budget_list(request):
         'incomes' : incomes
     }
     return render(request, 'monthly_budget/monthly_budget_list.html', context)
+
+
+def add_payment(request):
+    return render(request, 'monthly_budget/add_payment.html')
+
+
+def add_income(request):
+    return render(request, 'monthly_budget/add_income.html')
