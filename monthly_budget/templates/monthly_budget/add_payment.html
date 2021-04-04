@@ -5,46 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add payment</title>
 </head>
-<body>
-    <p>Add a payment</p>
-    <form method="POST" action="add">
-<div class="">
-    <label for="recipient_name">Who is the payment for?</label>
-    <p type="text" id="recipient_name" name="recipient_name"></p>
-</div>
-<div class="">
-    <label for="payment_category">Category</label>
-    <p type="text" id="payment_category" name="payment_category"></p>
-</div>
-<div class="">
-    <label for="payment_owner">Who is making the payment?</label>
-    <p type="text" id="payment_owner" name="payment_owner"></p>
-</div>
-<div class="">
-    <label for="payment_account">Which account is the payment made from?</label>
-    <p type="text" id="payment_account" name="payment_account"></p>
-</div>
-<div class="">
-    <label for="payment_date">What date is the payment made each month?</label>
-    <p type="number" id="payment_date" name="payment_date"></p>
-</div>
-<div class="">
-    <label for="instalment_amount">How much is the payment for?</label>
-    <p type="number" id="instalment_amount" name="instalment_amount"></p>
-</div>
-<div class="">
-    <label for="payment_completion_date">When are the payments scheduled to end?</label>
-    <p type="date" id="payment_completion_date" name="payment_completion_date"></p>
-</div>
-<div class="">
-    <p>
-        <button type="submit">Add payment</button>
-    </p>
-</div>
 
+<body>
+
+    <p>Add a payment</p>
+
+    <form method="POST" action="add">
+        <div class="">
+            <label for="recipient_name">Who is the payment for?</label>
+            <p>
+                <input type="text" id="recipient_name" name="recipient_name">
+            </p>
+        </div>
+        <div class="">
+            <label for="payment_category">Category</label>
+            <p>
+                <input type="text" id="payment_category" name="payment_category">
+            </p>
+        </div>
+        <div class="">
+            <label for="payment_owner">Who is making the payment?</label>
+            <p>
+                <input type="text" id="payment_owner" name="payment_owner">
+            </p>
+        </div>
+        <div class="">
+            <label for="payment_account">Which account is the payment made from?</label>
+            <p>
+                <input type="text" id="payment_account" name="payment_account">
+            </p>
+        </div>
+        <div class="">
+            <label for="payment_date">What date is the payment made each month?</label>
+            <p>
+                <input type="number" id="payment_date" name="payment_date">
+            </p>
+        </div>
+        <div class="">
+            <label for="instalment_amount">How much is the payment for?</label>
+            <p>
+                <input type="number" id="instalment_amount" name="instalment_amount">
+            </p>
+        </div>
+        <div class="">
+            <label for="payment_completion_date">When are the payments scheduled to end?</label>
+            <p>
+                <input type="date" id="payment_completion_date" name="payment_completion_date">
+            </p>
+        </div>
+        <div class="">
+            <p>
+                <button type="submit">Add payment</button>
+            </p>
+        </div>
     </form>
     
-
-   
 </body>
+
 </html>

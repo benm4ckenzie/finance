@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+
     <p>Monthly direct debits</p>
+
     <table>
-            {% for payment in payments %}            
+        {% for payment in payments %}            
             <tr>
                 {% if payment.has_paid %}
                     <td><strike>{{ payment.payment_recipient }}</strike></td>
@@ -19,7 +22,7 @@
                     <td>{{ payment.payment_account }}</td>
                     <td>{{ payment.payment_date }}</td>
             </tr>
-            {% empty %}
+        {% empty %}
             <tr>
                 <td>There are no payments to be made.</td>
             </tr>
@@ -27,19 +30,22 @@
     </table>
 
     <table>
-            {% for income in incomes %}            
-                <tr>
-                    <td>{{ income.income_stream }}</td>
-                    <td>{{ income.income_amount }}</td>
-                </tr>
-            {% empty %}
-                <tr>
-                    <td>There is no household income.</td>
-                </tr>
+        {% for income in incomes %}            
+            <tr>
+                <td>{{ income.income_stream }}</td>
+                <td>{{ income.income_amount }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td>There is no household income.</td>
+            </tr>
         {% endfor %}
     </table>
+
     <a href="/add">Add a new payment</a>
+
     <a href="/income">Add a new source of income</a>
     
 </body>
+
 </html>
