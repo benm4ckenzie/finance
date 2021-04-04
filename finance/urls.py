@@ -20,6 +20,6 @@ from monthly_budget.views import get_monthly_budget_list, add_payment, add_incom
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', get_monthly_budget_list, name='get_monthly_budget_list'),
-    path('add/', add_payment, name='add_payment'),
-    path('income/', add_income, name='add_income')
+    path('payment', add_payment, name='payment'),
+    path('income', add_income, name='income')
 ]
