@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Payment
 from .models import Income
+from .forms import PaymentForm
 
 # Create your views here.
 
@@ -33,8 +34,12 @@ def add_payment(request):
             instalment_amount=instalment_amount)
 
         return redirect('get_monthly_budget_list')
+    form = PaymentForm()
+    context = {
+        'form': form
+    }
 
-    return render(request, 'monthly_budget/add_payment.html')
+    return render(request, 'monthly_budget/add_payment.html', context)
 
 
 def add_income(request):
