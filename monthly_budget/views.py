@@ -18,22 +18,10 @@ def get_monthly_budget_list(request):
 
 def add_payment(request):
     if request.method == 'POST':
-        payment_category = request.POST.get('payment_category')
-        payment_account = request.POST.get('payment_account')
-        payment_owner = request.POST.get('payment_owner')
-        payment_date = request.POST.get('payment_date')
-        payment_recipient = request.POST.get('recipient_name')
-        payment_completion_date = request.POST.get('payment_completion_date')
-        instalment_amount = request.POST.get('instalment_amount')
-        Payment.objects.create(payment_category=payment_category,
-            payment_account=payment_account,
-            payment_owner=payment_owner,
-            payment_date=payment_date,
-            payment_recipient=payment_recipient,
-            payment_completion_date=payment_completion_date,
-            instalment_amount=instalment_amount)
-
-        return redirect('get_monthly_budget_list')
+        form = PaymentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('get_monthly_budget_list')
     form = PaymentForm()
     context = {
         'form': form
