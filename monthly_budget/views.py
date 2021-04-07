@@ -34,7 +34,7 @@ def add_income(request):
     if request.method == 'POST':
         income_stream = request.POST.get('income_stream')
         income_amount = request.POST.get('income_amount')
-        Income.object.create(income_stream=income_stream, income_amount=income_amount)
+        Income.objects.create(income_stream=income_stream, income_amount=income_amount)
 
         return redirect('get_monthly_budget_list')
 
