@@ -20,6 +20,7 @@ class Payment(models.Model):
 class Income(models.Model):
     income_stream = models.CharField(max_length=50, null=False, blank=False)
     income_amount = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False)
+    has_recieved = models.BooleanField(null=False, blank=False, default=True)
 
     def __str__(self):
         return self.income_stream

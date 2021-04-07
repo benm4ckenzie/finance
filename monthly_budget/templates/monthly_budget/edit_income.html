@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit income</title>
+</head>
+
+<body>
+
+    <p>Edit a source of income</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ editIncomeForm.as_p }}
+        <div class="">
+            <p>
+                <button type="submit">Update income</button>
+            </p>
+        </div>
+    </form>
+    
+</body>
+
+</html>

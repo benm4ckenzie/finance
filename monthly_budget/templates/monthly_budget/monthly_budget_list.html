@@ -8,7 +8,7 @@
 
 <body>
 
-    <p>Monthly direct debits</p>
+    <h1>Monthly direct debits</h1>
 
     <table>
         {% for payment in payments %}            
@@ -22,8 +22,18 @@
                 <td>{{ payment.payment_account }}</td>
                 <td>{{ payment.payment_date }}</td>
                 <td>
+                    <a href="/has_paid/{{ payment.id }}">
+                        <button>Paid?</button>
+                    </a>
+                </td>
+                <td>
                     <a href="/edit_payment/{{ payment.id }}">
-                        <button>Edit</button>
+                        <button>Edit payment</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="/delete_payment/{{ payment.id }}">
+                        <button>Delete</button>
                     </a>
                 </td>
             </tr>
@@ -34,22 +44,11 @@
         {% endfor %}
     </table>
 
-    <table>
-        {% for income in incomes %}            
-            <tr>
-                <td>{{ income.income_stream }}</td>
-                <td>{{ income.income_amount }}</td>
-            </tr>
-        {% empty %}
-            <tr>
-                <td>There is no household income.</td>
-            </tr>
-        {% endfor %}
-    </table>
+    
 
     <a href="/payment">Add a new payment</a>
 
-    <a href="/income">Add a new source of income</a>
+    <a href="/monthly_income_list">View household income</a>
     
 </body>
 

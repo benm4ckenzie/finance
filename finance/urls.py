@@ -15,12 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from monthly_budget.views import get_monthly_budget_list, add_payment, add_income, edit_payment
+from monthly_budget import views
 
 urlpatterns = [
     path('admin', admin.site.urls),
-    path('', get_monthly_budget_list, name='get_monthly_budget_list'),
-    path('payment', add_payment, name='payment'),
-    path('income', add_income, name='income'),
-    path('edit_payment/<payment_id>', edit_payment, name='edit_payment')
+    path('', views.get_monthly_budget_list, name='get_monthly_budget_list'),
+    path('monthly_budget_list', views.get_monthly_budget_list, name='get_monthly_budget_list'),
+    path('payment', views.add_payment, name='payment'),
+    path('edit_payment/<payment_id>', views.edit_payment, name='edit_payment'),
+    path('has_paid/<payment_id>', views.has_paid, name='has_paid'),
+    path('delete_payment/<payment_id>', views.delete_payment, name='delete_payment'),
+    path('monthly_income_list', views.get_monthly_income_list, name='get_monthly_income_list'),
+    path('income', views.add_income, name='income'),
+    path('edit_income/<income_id>', views.edit_income, name='edit_income'),
+    path('has_recieved/<income_id>', views.has_recieved, name='has_recieved'),
+    path('delete_income/<income_id>', views.delete_income, name='delete_income')
 ]

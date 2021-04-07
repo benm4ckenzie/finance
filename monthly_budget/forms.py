@@ -18,4 +18,5 @@ class IncomeForm(forms.ModelForm):
     class Meta:
         model = Income
         fields = ['income_stream',
-                'income_amount']
+                'income_amount',
+                'has_recieved']
