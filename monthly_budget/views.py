@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Payment
 from .models import Income
 from .forms import PaymentForm
+from .forms import IncomeForm
 
 # Create your views here.
 
@@ -32,10 +33,13 @@ def add_payment(request):
 
 def add_income(request):
     if request.method == 'POST':
-        income_stream = request.POST.get('income_stream')
-        income_amount = request.POST.get('income_amount')
-        Income.objects.create(income_stream=income_stream, income_amount=income_amount)
+        incomeForm = IncomeForm(request.POST)
+        if incomeForm.is_valid():
+            incomeForm.save()
+            return redirect('get_monthly_budget_list')
+    incomeForm = IncomeForm()
+    context = {
+        'incomeForm': incomeForm
+    }
 
-        return redirect('get_monthly_budget_list')
-
-    return render(request, 'monthly_budget/add_income.html')
+    return render(request, 'monthly_budget/add_income.html', context)

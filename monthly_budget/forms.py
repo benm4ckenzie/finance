@@ -1,5 +1,6 @@
 from django import forms
 from .models import Payment
+from .models import Income
 
 class PaymentForm(forms.ModelForm):
     class Meta:
@@ -11,3 +12,9 @@ class PaymentForm(forms.ModelForm):
                 'instalment_amount',
                 'payment_recipient',
                 'payment_completion_date']
+
+class IncomeForm(forms.ModelForm):
+    class Meta:
+        model = Income
+        fields = ['income_stream',
+                'income_amount']

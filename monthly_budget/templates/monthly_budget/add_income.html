@@ -12,23 +12,12 @@
 
     <form method="POST" action="income">
         {% csrf_token %}
-            <div class="">
-                <label for="income_stream">Income from?</label>
-                <p>
-                    <input type="text" id="income_stream" name="income_stream">
-                </p>
-            </div>
-            <div class="">
-                <label for="income_amount">Amount</label>
-                <p>
-                    <input type="number" id="income_amount" name="income_amount">
-                </p>
-            </div>
-            <div class="">
-                <p>
-                    <button type="submit">Add income</button>
-                </p>
-            </div>
+        {{ incomeForm.as_p }}
+        <div class="">
+            <p>
+                <button type="submit">Add income</button>
+            </p>
+        </div>
     </form>
     
 </body>
