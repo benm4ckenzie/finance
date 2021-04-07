@@ -13,14 +13,19 @@
     <table>
         {% for payment in payments %}            
             <tr>
-                {% if payment.has_paid %}
-                    <td><strike>{{ payment.payment_recipient }}</strike></td>
-                {% else %}
-                    <td>{{ payment.payment_recipient }}</td>
-                {% endif %}
-                    <td>{{ payment.instalment_amount }}</td>
-                    <td>{{ payment.payment_account }}</td>
-                    <td>{{ payment.payment_date }}</td>
+            {% if payment.has_paid %}
+                <td><strike>{{ payment.payment_recipient }}</strike></td>
+            {% else %}
+                <td>{{ payment.payment_recipient }}</td>
+            {% endif %}
+                <td>{{ payment.instalment_amount }}</td>
+                <td>{{ payment.payment_account }}</td>
+                <td>{{ payment.payment_date }}</td>
+                <td>
+                    <a href="/edit_payment/{{ payment.id }}">
+                        <button>Edit</button>
+                    </a>
+                </td>
             </tr>
         {% empty %}
             <tr>

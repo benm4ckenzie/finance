@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from monthly_budget.views import get_monthly_budget_list, add_payment, add_income
+from monthly_budget.views import get_monthly_budget_list, add_payment, add_income, edit_payment
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('', get_monthly_budget_list, name='get_monthly_budget_list'),
     path('payment', add_payment, name='payment'),
-    path('income', add_income, name='income')
+    path('income', add_income, name='income'),
+    path('edit_payment/<payment_id>', edit_payment, name='edit_payment')
 ]

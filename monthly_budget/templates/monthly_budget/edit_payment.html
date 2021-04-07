@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add payment</title>
+    <title>Edit payment</title>
 </head>
 
 <body>
 
-    <p>Add a payment</p>
+    <p>Edit a payment</p>
 
-    <form method="POST" action="payment">
+    <form method="POST">
         {% csrf_token %}
-        {{ paymentForm.as_p }}
+        {{ editPaymentForm.as_p }}
         <div class="">
             <p>
-                <button type="submit">Add payment</button>
+                <button type="submit">Update payment</button>
             </p>
         </div>
     </form>

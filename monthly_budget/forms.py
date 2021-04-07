@@ -11,7 +11,8 @@ class PaymentForm(forms.ModelForm):
                 'payment_date',
                 'instalment_amount',
                 'payment_recipient',
-                'payment_completion_date']
+                'payment_completion_date',
+                'has_paid']
 
 class IncomeForm(forms.ModelForm):
     class Meta:

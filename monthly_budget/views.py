@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Payment
 from .models import Income
 from .forms import PaymentForm
@@ -19,13 +19,13 @@ def get_monthly_budget_list(request):
 
 def add_payment(request):
     if request.method == 'POST':
-        form = PaymentForm(request.POST)
-        if form.is_valid():
-            form.save()
+        paymentForm = PaymentForm(request.POST)
+        if paymentForm.is_valid():
+            paymentForm.save()
             return redirect('get_monthly_budget_list')
-    form = PaymentForm()
+    paymentForm = PaymentForm()
     context = {
-        'form': form
+        'paymentForm': paymentForm
     }
 
     return render(request, 'monthly_budget/add_payment.html', context)
@@ -43,3 +43,17 @@ def add_income(request):
     }
 
     return render(request, 'monthly_budget/add_income.html', context)
+
+
+def edit_payment(request, payment_id):
+    paymentItem = get_object_or_404(Payment, id=payment_id)
+    if request.method == 'POST':
+        paymentForm = PaymentForm(request.POST, instance=paymentItem)
+        if paymentForm.is_valid():
+            paymentForm.save()
+            return redirect('get_monthly_budget_list')
+    editPaymentForm = PaymentForm(instance=paymentItem)
+    context ={
+        'editPaymentForm': editPaymentForm
+    }
+    return render(request, 'monthly_budget/edit_payment.html', context)
