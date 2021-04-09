@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+9+_+miz7rxjm%p6u9i&_(p4u_a(f%n1pwkjs4#nock_kw#j4%'
+SECRET_KEY = os.environ.get('SECRET_KEY', '+9+_+miz7rxjm%p6u9i&_(p4u_a(f%n1pwkjs4#nock_kw#j4%')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['household-monthly-budget.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
@@ -83,7 +84,7 @@ WSGI_APPLICATION = 'finance.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://pbweizgcakuztm:928b71f94440f1e3f759dc9911c22884b17200c0fffcc2ef6a5416ab7366fac4@ec2-34-225-167-77.compute-1.amazonaws.com:5432/d3vgenb2hv2nqm')
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL')'postgres://pbweizgcakuztm:928b71f94440f1e3f759dc9911c22884b17200c0fffcc2ef6a5416ab7366fac4@ec2-34-225-167-77.compute-1.amazonaws.com:5432/d3vgenb2hv2nqm')
 }
 
 
