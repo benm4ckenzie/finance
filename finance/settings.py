@@ -26,7 +26,7 @@ SECRET_KEY = '+9+_+miz7rxjm%p6u9i&_(p4u_a(f%n1pwkjs4#nock_kw#j4%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['git.heroku.com/household-monthly-budget.git']
 
 
 # Application definition
