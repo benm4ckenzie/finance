@@ -17,9 +17,9 @@
     <h1>Monthly direct debits</h1>
 <br>
 {% for payment in payments %} 
-<div class="row">
+<div class="row payment-details">
     {% if payment.has_paid %}
-    <div class="col-6">
+    <div class="col-10">
         <strike>{{ payment.payment_recipient }}</strike>
         <i class="fas fa-info-circle" title="this is a tooltip">
             {{ payment.payment_account }}
@@ -27,26 +27,24 @@
         </i>
     </div>
     {% else %}
-    <div class="col-6" >
+    <div class="col-9" >
         {{ payment.payment_recipient }}
         <i class="fas fa-info-circle"></i>
     </div>
     
     {% endif %}
-    <div class="col-3">
+    <div class="col-3 text-right">
         {{ payment.instalment_amount }}
     </div>
-    <div class="col-1">
+</div>
+<div class="row payment-options">
+    <div class="col btn-box">
         <a href="/has_paid/{{ payment.id }}">
             <button type="button" class="btn">Paid?</button>
         </a>
-    </div>
-    <div class="col-1">
         <a href="/edit_payment/{{ payment.id }}">
             <button type="button" class="btn">Edit</button>
         </a>
-    </div>
-    <div class="col-1">
         <a href="/delete_payment/{{ payment.id }}">
             <button type="button" class="btn">Delete</button>
         </a>

@@ -5,17 +5,32 @@
     color: white;
     font-family: 'Alegreya Sans', sans-serif;
     font-weight: bolder;
-    font-size: 30px;
 }
 
-button {
+h1 {
+    text-align: center;
+}
+
+.payment-details {
+    border-top: 4px dotted #68D9CF;
+    margin: 5px 0px;
+    font-size: 20px;
+}
+
+.payment-options {
+    margin: 5px 0px;
+}
+
+.btn {
     background: #68D9CF;
     color: #192851;
-    font-weight: bolder;
-    font-size: 20px; 
-    line-height: 20px; 
-    padding: 9px;
-    border-radius: 50px;
+    width: 100%;
+}
+
+.btn-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 button:hover {
