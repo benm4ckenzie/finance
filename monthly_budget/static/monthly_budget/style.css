@@ -13,6 +13,8 @@ h1 {
 
 .payment-details {
     border-top: 4px dotted #68D9CF;
+    display: flex;
+    align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -21,12 +23,14 @@ h1 {
     color: #68D9CF;
 }
 
-.fa-icon-box {
+.payment-detail-boxes {
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: 0;
-    padding: 0;
+    justify-content: flex-start; 
+}
+
+.payment-made {
+    color: gray;
 }
 
 .payment-options {
@@ -36,16 +40,10 @@ h1 {
 .btn {
     background: #68D9CF;
     color: #192851;
-    width: 100%;
 }
 
-.btn-box {
+.payment-options-btn-box {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-
-button:hover {
-background: #1C6EA4; }
-button:active {
-background: #144E75; }
