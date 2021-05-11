@@ -13,12 +13,19 @@ h1 {
 
 .payment-details {
     border-top: 4px dotted #68D9CF;
-    margin: 5px 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 20px;
 }
 
+.fa-icon-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .payment-options {
-    margin: 5px 0px;
+    padding-bottom: 10px;
 }
 
 .btn {
