@@ -9,70 +9,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
+    <title>Direct debits</title>
 </head>
 
 <body>
+
 <div class="container-fluid">
-    <h1>Monthly direct debits</h1>
-<br>
-{% for payment in payments %} 
-<div class="row payment-details">
-    {% if payment.has_paid %}
-    <div class="col-10 fa-icon-box">
-        <strike>{{ payment.payment_recipient }}</strike>
-        <i class="fas fa-info-circle" title="this is a tooltip">
-            {{ payment.payment_account }}
-                <!-- <p>{{ payment.payment_date }}</p> -->
-        </i>
-    </div>
-    {% else %}
-    <div class="col-9" >
-        {{ payment.payment_recipient }}
-        <i class="fas fa-info-circle"></i>
-    </div>
+    <h1>Direct debits</h1>
+    <br>
+    {% for payment in payments %} 
+    <div class="row payment-details">
+        {% if payment.has_paid %}
+        <div class="col-8">
+            <strike>{{ payment.payment_recipient }}</strike>
+        </div>
+        <div class="col-1 fa-icon-box">
+            <button type="button" class="" data-toggle="modal" data-target="#exampleModalCenter">
+                <i class="fas fa-info-circle"></i>
+            </button>
+        </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <i class="fas fa-info-circle">
+                {{ payment.payment_account }}
+                 {{ payment.payment_date }}      
+            </i> -->
+        </div>
+        {% else %}
+        <div class="col-8" >
+            {{ payment.payment_recipient }}
+        </div>
+        <div class="col-1 fa-icon-box">
+            <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
+                <i class="fas fa-info-circle"></i>
+            </button>
+        </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <i class="fas fa-info-circle">
+                {{ payment.payment_account }}
+            {{ payment.payment_date }} </i> -->
     
-    {% endif %}
-    <div class="col-3 text-right">
-        {{ payment.instalment_amount }}
+        
+        {% endif %}
+        <div class="col-3 text-right">
+            {{ payment.instalment_amount }}
+        </div>
     </div>
-</div>
-<div class="row payment-options">
-    <div class="col btn-box">
-        <a href="/has_paid/{{ payment.id }}">
-            <button type="button" class="btn">Paid?</button>
-        </a>
-        <a href="/edit_payment/{{ payment.id }}">
-            <button type="button" class="btn">Edit</button>
-        </a>
-        <a href="/delete_payment/{{ payment.id }}">
-            <button type="button" class="btn">Delete</button>
-        </a>
+    <div class="row payment-options">
+        <div class="col btn-box">
+                <a href="/has_paid/{{ payment.id }}">
+                    <i class="fas fa-pound-sign fa-icon"></i>
+                </a>
+                <a href="/edit_payment/{{ payment.id }}">
+                    <i class="fas fa-edit fa-icon"></i>
+                </a>
+                <a href="/delete_payment/{{ payment.id }}">
+                    <i class="fas fa-trash fa-icon"></i>
+                </a>
+        </div>
     </div>
-</div>
-{% empty %}
-<div class="row">
-    <div class="col-12">
-        <p>There are no payments to be made.</p>
+    {% empty %}
+    <div class="row">
+        <div class="col-12">
+            <p>There are no payments to be made.</p>
+        </div>
     </div>
-</div>
-{% endfor %}
-  
-                <!-- <td>{{ payment.payment_account }}</td> -->
-                <!-- <td>{{ payment.payment_date }}</td> -->
-               
-      
+    {% endfor %}
     
-    
-
-
-
-    
-
     <a href="/payment">Add a new payment</a>
 
     <a href="/monthly_income_list">View household income</a>
-    </div>
+
+    
+</div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
