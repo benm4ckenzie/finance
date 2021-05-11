@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,42 +13,57 @@
 </head>
 
 <body>
-
+<div class="container-fluid">
     <h1>Monthly direct debits</h1>
-
-    <table>
-        {% for payment in payments %}            
-            <tr>
-            {% if payment.has_paid %}
-                <td><strike>{{ payment.payment_recipient }}</strike></td>
-            {% else %}
-                <td>{{ payment.payment_recipient }}</td>
-            {% endif %}
-                <td>{{ payment.instalment_amount }}</td>
-                <td>{{ payment.payment_account }}</td>
-                <td>{{ payment.payment_date }}</td>
-                <td>
-                    <a href="/has_paid/{{ payment.id }}">
-                        <button>Paid?</button>
-                    </a>
-                </td>
-                <td>
-                    <a href="/edit_payment/{{ payment.id }}">
-                        <button>Edit payment</button>
-                    </a>
-                </td>
-                <td>
-                    <a href="/delete_payment/{{ payment.id }}">
-                        <button>Delete</button>
-                    </a>
-                </td>
-            </tr>
-        {% empty %}
-            <tr>
-                <td>There are no payments to be made.</td>
-            </tr>
-        {% endfor %}
-    </table>
+<br>
+{% for payment in payments %} 
+<div class="row">
+    {% if payment.has_paid %}
+    <div class="col-6">
+        <strike>{{ payment.payment_recipient }}</strike>
+        <i class="fas fa-info-circle" title="this is a tooltip">
+            {{ payment.payment_account }}
+                <!-- <p>{{ payment.payment_date }}</p> -->
+        </i>
+    </div>
+    {% else %}
+    <div class="col-6" >
+        {{ payment.payment_recipient }}
+        <i class="fas fa-info-circle"></i>
+    </div>
+    
+    {% endif %}
+    <div class="col-3">
+        {{ payment.instalment_amount }}
+    </div>
+    <div class="col-1">
+        <a href="/has_paid/{{ payment.id }}">
+            <button type="button" class="btn">Paid?</button>
+        </a>
+    </div>
+    <div class="col-1">
+        <a href="/edit_payment/{{ payment.id }}">
+            <button type="button" class="btn">Edit</button>
+        </a>
+    </div>
+    <div class="col-1">
+        <a href="/delete_payment/{{ payment.id }}">
+            <button type="button" class="btn">Delete</button>
+        </a>
+    </div>
+</div>
+{% empty %}
+<div class="row">
+    <div class="col-12">
+        <p>There are no payments to be made.</p>
+    </div>
+</div>
+{% endfor %}
+  
+                <!-- <td>{{ payment.payment_account }}</td> -->
+                <!-- <td>{{ payment.payment_date }}</td> -->
+               
+      
     
     
 
@@ -58,7 +74,7 @@
     <a href="/payment">Add a new payment</a>
 
     <a href="/monthly_income_list">View household income</a>
-    
+    </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 

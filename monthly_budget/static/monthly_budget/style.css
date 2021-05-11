@@ -1,13 +1,24 @@
-body {
-    background: #4E4BB4;
-    color: white;
-}
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300&display=swap');
 
-body h1 {
-    color: #FF6300;
+* {
+    background-color: #192851;
+    color: white;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: bolder;
+    font-size: 30px;
 }
 
 button {
-    background: #4b7db4;
-    COLOR: White;
+    background: #68D9CF;
+    color: #192851;
+    font-weight: bolder;
+    font-size: 20px; 
+    line-height: 20px; 
+    padding: 9px;
+    border-radius: 50px;
 }
+
+button:hover {
+background: #1C6EA4; }
+button:active {
+background: #144E75; }
