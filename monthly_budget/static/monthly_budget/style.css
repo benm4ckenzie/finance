@@ -7,8 +7,28 @@
     font-weight: bolder;
 }
 
-h1 {
-    text-align: center;
+.colour-true {
+    background-color: #192851;
+    color: #68D9CF;
+}
+
+.colour-reverse {
+    background-color: #68D9CF;
+    color: #192851;
+}
+
+.payment-made {
+    color: gray;
+}
+
+.navbar-page-title {
+    font-size: 20px;
+}
+.navbar-dropdown{
+    background-color: #68D9CF !important;
+}
+.dropdown-menu {
+    background-color: #68D9CF !important;
 }
 
 .payment-details {
@@ -19,27 +39,14 @@ h1 {
     padding-bottom: 10px;
 }
 
-.fa-icon {
-    color: #68D9CF;
-}
-
 .payment-detail-boxes {
     display: flex;
     align-items: center;
     justify-content: flex-start; 
 }
 
-.payment-made {
-    color: gray;
-}
-
 .payment-options {
     padding-bottom: 10px;
-}
-
-.btn {
-    background: #68D9CF;
-    color: #192851;
 }
 
 .payment-options-btn-box {

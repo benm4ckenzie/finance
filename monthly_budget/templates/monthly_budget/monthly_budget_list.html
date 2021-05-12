@@ -15,17 +15,30 @@
 
 <body>
 
+<nav class="navbar nav-expand-lg fixed-top navbar-page-title colour-reverse">
+    <div class="dropdown navbar-dropdown">
+        <a class="" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-bars colour-reverse"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="colour-reverse" href="/">View payments</a>
+            <div class="dropdown-divider"></div>
+            <a class="colour-reverse" href="/monthly_income_list">View income</a>
+            <div class="dropdown-divider"></div>
+            <a class="colour-reverse" href="/payment">Add payment</a>
+            
+        </div>
+    </div>
+    <a class="navbar-page-title colour-reverse" href="/">Direct Debit Manager</a>
+</nav>
+
 <div class="container-fluid">
-
-    <h1>Direct debits</h1>
-
-    <br>
 
     {% for payment in payments %} 
     <div class="row payment-details">
         <div class="col-1 payment-detail-boxes">
             <a class="payment-detail-boxes" data-toggle="modal" data-target="#paymentInformationModal">
-                <i class="fas fa-info-circle fa-icon"></i>
+                <i class="fas fa-info-circle colour-true"></i>
             </a>
         </div>
 
@@ -44,7 +57,7 @@
                         <p>Completion date: {{ payment.payment_completion_date }}</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn colour-reverse" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -75,13 +88,13 @@
     <div class="row payment-options">
         <div class="col payment-options-btn-box">
             <a href="/has_paid/{{ payment.id }}">
-                <i class="fas fa-check fa-icon"></i>
+                <i class="fas fa-check colour-true"></i>
             </a>
             <a href="/edit_payment/{{ payment.id }}">
-                <i class="fas fa-edit fa-icon"></i>
+                <i class="fas fa-edit colour-true"></i>
             </a>
             <a href="/delete_payment/{{ payment.id }}">
-                <i class="fas fa-trash fa-icon"></i>
+                <i class="fas fa-trash colour-true"></i>
             </a>
         </div>
     </div>
@@ -94,18 +107,6 @@
     </div>
     {% endfor %}
 
-    <div class="row">
-        <div class="col-6 payment-options-btn-box">
-            <a href="/payment">
-                <button type="button" class="btn">Add a new payment</button>
-            </a>
-        </div>
-        <div class="col-6 payment-options-btn-box">
-            <a href="/monthly_income_list">
-                <button type="button" class="btn">View household income</button>
-            </a>
-        </div>
-    </div>
     
 </div>
 
