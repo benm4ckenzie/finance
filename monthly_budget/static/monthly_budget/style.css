@@ -7,13 +7,17 @@
     font-weight: bolder;
 }
 
+.container-fluid {
+    padding-top: 46px;
+}
+
 .colour-true {
     background-color: #192851;
     color: #68D9CF;
 }
 
 .colour-reverse {
-    background-color: rgb(31, 117, 110);
+    background-color: #68D9CF;
     color: #192851;
 }
 

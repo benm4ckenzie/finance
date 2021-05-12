@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Direct debits</title>
+    <title>Direct debit Manager</title>
 </head>
 
 <body>
@@ -85,6 +85,20 @@
         {% endif %}
     </div>
 
+    <!-- <div class="row">
+        <div class="col-4">Due date: {{ payment.payment_date }}</div>
+        <div class="col-4">{{ payment.payment_account }}</div>
+        <div class="col-4">Completion: {{ payment.payment_completion_date }}</div>
+    </div>
+    <div class="row">
+        <div class="col-6">{{ payment.payment_category }}</div>
+        <div class="col-6">{{ payment.payment_owner }}</div>
+            
+    
+        </div>
+    </div> -->
+           
+   
     <div class="row payment-options">
         <div class="col payment-options-btn-box">
             <a href="/has_paid/{{ payment.id }}">
