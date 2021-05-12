@@ -13,7 +13,7 @@
 }
 
 .colour-reverse {
-    background-color: #68D9CF;
+    background-color: rgb(31, 117, 110);
     color: #192851;
 }
 
@@ -24,11 +24,21 @@
 .navbar-page-title {
     font-size: 20px;
 }
+
 .navbar-dropdown{
     background-color: #68D9CF !important;
 }
+
 .dropdown-menu {
     background-color: #68D9CF !important;
+}
+
+.dropdown-option {
+padding: 10px;
+}
+
+.dropdown-divider {
+    border-color: #192851 !important;
 }
 
 .payment-details {
