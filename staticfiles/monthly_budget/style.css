@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300&display=swap');
+
+* {
+    background-color: #192851;
+    color: white;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: bolder;
+}
+
+h1 {
+    text-align: center;
+}
+
+.payment-details {
+    border-top: 4px dotted #68D9CF;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.fa-icon {
+    color: #68D9CF;
+}
+
+.payment-detail-boxes {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+}
+
+.payment-made {
+    color: gray;
+}
+
+.payment-options {
+    padding-bottom: 10px;
+}
+
+.btn {
+    background: #68D9CF;
+    color: #192851;
+}
+
+.payment-options-btn-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
