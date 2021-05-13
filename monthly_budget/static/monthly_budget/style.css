@@ -25,6 +25,10 @@
     color: gray;
 }
 
+.dropdown {
+    position: static !important;
+}
+
 .navbar-page-title {
     font-size: 20px;
 }
@@ -35,10 +39,15 @@
 
 .dropdown-menu {
     background-color: #68D9CF !important;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0px !important;
 }
 
 .dropdown-option {
-padding: 10px;
+padding: 5px;
+margin-top: 15px;
+margin-bottom: 15px;
 }
 
 .dropdown-divider {
