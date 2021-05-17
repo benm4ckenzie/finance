@@ -55,7 +55,7 @@ margin-bottom: 15px;
 }
 
 .payment-details {
-    border-top: 4px dotted #68D9CF;
+    
     display: flex;
     align-items: center;
     padding-top: 10px;
@@ -69,6 +69,7 @@ margin-bottom: 15px;
 }
 
 .payment-options {
+    border-bottom: 4px dotted #68D9CF;
     padding-bottom: 10px;
 }
 
