@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.db.models import Sum
 from .models import Payment
 from .models import Income
 from .forms import PaymentForm
@@ -9,8 +10,13 @@ from .forms import IncomeForm
 
 def get_monthly_budget_list(request):
     payments = Payment.objects.all()
+    income = Income.objects.all()
+    sumOfPayments = payments.aggregate(Sum('instalment_amount'))
+    sumOfIncome = income.aggregate(Sum('income_amount'))
     context = {
-        'payments': payments
+        'payments': payments,
+        'sumOfPayments': sumOfPayments,
+        'sumOfIncome': sumOfIncome
     }
     return render(request, 'monthly_budget/monthly_budget_list.html', context)
 
