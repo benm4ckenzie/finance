@@ -13,12 +13,19 @@ def get_monthly_budget_list(request):
     income = Income.objects.all()
     sumOfPayments = payments.aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     sumOfIncome = income.aggregate(Sum('income_amount'))['income_amount__sum']
+    remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     incomePaymentsDifference = sumOfIncome - sumOfPayments
     context = {
         'payments': payments,
         'sumOfPayments': sumOfPayments,
         'sumOfIncome': sumOfIncome,
-        'incomePaymentsDifference': incomePaymentsDifference
+        'incomePaymentsDifference': incomePaymentsDifference,
+        'remainingMonthlyPaymentsTotal': remainingMonthlyPaymentsTotal,
+        'remainingMonthlyPaymentsJoint': remainingMonthlyPaymentsJoint,
+        'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen
+
     }
     return render(request, 'monthly_budget/monthly_budget_list.html', context)
 
