@@ -16,8 +16,11 @@ def get_monthly_budget_list(request):
     remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    # response = requests.get('https://api.starlingbank.com/api/v2/accounts/2bc9b49f-5cf5-4909-9ff7-8c7e9155d4d7/balance')
+    # accountDetails = response.json()
     incomePaymentsDifference = sumOfIncome - sumOfPayments
     context = {
+    # 'bankAccountAmount': accountDetails['amount'],
         'payments': payments,
         'sumOfPayments': sumOfPayments,
         'sumOfIncome': sumOfIncome,
@@ -25,7 +28,6 @@ def get_monthly_budget_list(request):
         'remainingMonthlyPaymentsTotal': remainingMonthlyPaymentsTotal,
         'remainingMonthlyPaymentsJoint': remainingMonthlyPaymentsJoint,
         'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen
-
     }
     return render(request, 'monthly_budget/monthly_budget_list.html', context)
 

@@ -45,10 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "monthly_budget",
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount'
+    "monthly_budget"
 ]
 
 MIDDLEWARE = [
