@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.db.models import Sum
+from django.db.models import Sum, FloatField
 from .models import Payment
 from .models import Income
 from .forms import PaymentForm
@@ -11,12 +11,14 @@ from .forms import IncomeForm
 def get_monthly_budget_list(request):
     payments = Payment.objects.all()
     income = Income.objects.all()
-    sumOfPayments = payments.aggregate(Sum('instalment_amount'))
-    sumOfIncome = income.aggregate(Sum('income_amount'))
+    sumOfPayments = payments.aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    sumOfIncome = income.aggregate(Sum('income_amount'))['income_amount__sum']
+    incomePaymentsDifference = sumOfIncome - sumOfPayments
     context = {
         'payments': payments,
         'sumOfPayments': sumOfPayments,
-        'sumOfIncome': sumOfIncome
+        'sumOfIncome': sumOfIncome,
+        'incomePaymentsDifference': incomePaymentsDifference
     }
     return render(request, 'monthly_budget/monthly_budget_list.html', context)
 
@@ -50,7 +52,7 @@ def edit_payment(request, payment_id):
             paymentForm.save()
             return redirect('get_monthly_budget_list')
     editPaymentForm = PaymentForm(instance=paymentItem)
-    context ={
+    context = {
         'editPaymentForm': editPaymentForm
     }
     return render(request, 'monthly_budget/edit_payment.html', context)
@@ -90,7 +92,7 @@ def edit_income(request, income_id):
             incomeForm.save()
             return redirect('get_monthly_income_list')
     editIncomeForm = IncomeForm(instance=incomeItem)
-    context ={
+    context = {
         'editIncomeForm': editIncomeForm
     }
     return render(request, 'monthly_budget/edit_income.html', context)
