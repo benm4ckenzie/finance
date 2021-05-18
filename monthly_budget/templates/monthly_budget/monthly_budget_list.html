@@ -7,7 +7,7 @@
     {% for payment in payments %} 
     <div class="row payment-details">
         <div class="col-1 payment-detail-boxes">
-            <a class="payment-detail-boxes" data-toggle="modal" data-target="#paymentInformationModal">
+            <a class="payment-detail-boxes" data-toggle="modal" data-target="#paymentInformationModal-{{ payment.payment_recipient }}">
                 <i class="fas fa-info-circle colour-true"></i>
             </a>
         </div>
@@ -41,14 +41,14 @@
             <a href="/edit_payment/{{ payment.id }}">
                 <i class="fas fa-edit colour-true"></i>
             </a>
-            <a class="" data-toggle="modal" data-target="#deletePaymentModal">
+            <a class="" data-toggle="modal" data-target="#deletePaymentModal-{{ payment.payment_recipient }}">
                 <i class="fas fa-trash colour-true"></i>
             </a>
         </div>
     </div>
 
     <!-- Payment Info Modal -->
-    <div class="modal fade" id="paymentInformationModal" tabindex="-1" role="dialog" aria-labelledby="paymentInformationModalTitle" aria-hidden="true">
+    <div class="modal fade" id="paymentInformationModal-{{ payment.payment_recipient }}" tabindex="-1" role="dialog" aria-labelledby="paymentInformationModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content rounded-0">
                 <div class="modal-header">
@@ -70,7 +70,7 @@
     <!-- End Payment Info Modal -->
 
     <!-- Deletion Modal -->
-    <div class="modal fade" id="deletePaymentModal" tabindex="-1" role="dialog" aria-labelledby="deletePaymentModalTitle" aria-hidden="true">
+    <div class="modal fade" id="deletePaymentModal-{{ payment.payment_recipient }}" tabindex="-1" role="dialog" aria-labelledby="deletePaymentModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content rounded-0">
                 <div class="modal-header">
