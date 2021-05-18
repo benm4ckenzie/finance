@@ -9,7 +9,7 @@ from .forms import IncomeForm
 
 
 def get_monthly_budget_list(request):
-    payments = Payment.objects.all()
+    payments = Payment.objects.all().order_by('payment_date')
     income = Income.objects.all()
     sumOfPayments = payments.aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     sumOfIncome = income.aggregate(Sum('income_amount'))['income_amount__sum']

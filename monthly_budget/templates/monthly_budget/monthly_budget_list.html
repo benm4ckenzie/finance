@@ -47,6 +47,49 @@
         </div>
     </div>
 
+    <!-- Payment Info Modal -->
+    <div class="modal fade" id="paymentInformationModal" tabindex="-1" role="dialog" aria-labelledby="paymentInformationModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentInformationModalTitle">{{ payment.payment_recipient }}</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Due date: {{ payment.payment_date }}</p>
+                    <p>Account: {{ payment.payment_account }}</p>
+                    <p>Category: {{ payment.payment_category }}</p>
+                    <p>Payment owner: {{ payment.payment_owner }}</p>
+                    <p>Completion date: {{ payment.payment_completion_date }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn colour-reverse" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Payment Info Modal -->
+
+    <!-- Deletion Modal -->
+    <div class="modal fade" id="deletePaymentModal" tabindex="-1" role="dialog" aria-labelledby="deletePaymentModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deletePaymentModalTitle">Do you really want to delete the payment for:</h5>
+                </div>
+                <div class="modal-body">
+                    <p>{{ payment.payment_recipient }}</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="/delete_payment/{{ payment.id }}">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                    <button type="button" class="btn colour-reverse" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Deletion Modal -->
+
     {% empty %}
     <div class="row">
         <div class="col-12">
@@ -74,50 +117,7 @@
             <i class="fas fa-pound-sign colour-reverse"></i>
         </button>
     </nav> -->
-    
-</div>
 
-<!-- Payment Info Modal -->
-<div class="modal fade" id="paymentInformationModal" tabindex="-1" role="dialog" aria-labelledby="paymentInformationModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="paymentInformationModalTitle">{{ payment.payment_recipient }}</h5>
-            </div>
-            <div class="modal-body">
-                <p>Due date: {{ payment.payment_date }}</p>
-                <p>Account: {{ payment.payment_account }}</p>
-                <p>Category: {{ payment.payment_category }}</p>
-                <p>Payment owner: {{ payment.payment_owner }}</p>
-                <p>Completion date: {{ payment.payment_completion_date }}</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn colour-reverse" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
 </div>
-<!-- End Payment Info Modal -->
-
-<!-- Deletion Modal -->
-<div class="modal fade" id="deletePaymentModal" tabindex="-1" role="dialog" aria-labelledby="deletePaymentModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deletePaymentModalTitle">Do you really want to delete the payment for:</h5>
-            </div>
-            <div class="modal-body">
-                <p>{{ payment.payment_recipient }}</p>
-            </div>
-            <div class="modal-footer">
-                <a href="/delete_payment/{{ payment.id }}">
-                    <button type="button" class="btn btn-danger">Delete</button>
-                </a>
-                <button type="button" class="btn colour-reverse" data-dismiss="modal">Cancel</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Deletion Modal -->
 
 {% endblock %}
