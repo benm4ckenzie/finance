@@ -78,3 +78,16 @@ margin-bottom: 15px;
     justify-content: space-around;
     align-items: center;
 }
+/* --------------------------------------------------------------------------------------MODAL */
+.modal-styling {
+    background-color: #68D9CF !important;
+    color: #192851 !important;
+}
+
+.modal-positioning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+

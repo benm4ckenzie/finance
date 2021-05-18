@@ -54,19 +54,19 @@
     <!-- Payment Info Modal -->
     <div class="modal fade" id="paymentInformationModal-{{ payment.payment_recipient }}" tabindex="-1" role="dialog" aria-labelledby="paymentInformationModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content rounded-0">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="paymentInformationModalTitle">{{ payment.payment_recipient }}</h5>
+            <div class="modal-content rounded-0 border-0 modal-styling modal-positioning">
+                <div class="modal-header rounded-0  border-0 modal-styling modal-positioning">
+                    <h3 class="modal-title rounded-0  border-0 modal-styling modal-positioning" id="paymentInformationModalTitle"><strong class="modal-styling modal-positioning">{{ payment.payment_recipient }}</strong></h3>
                 </div>
-                <div class="modal-body">
-                    <p>Due date: {{ payment.payment_date }}</p>
-                    <p>Account: {{ payment.payment_account }}</p>
-                    <p>Category: {{ payment.payment_category }}</p>
-                    <p>Payment owner: {{ payment.payment_owner }}</p>
-                    <p>Completion date: {{ payment.payment_completion_date }}</p>
+                <div class="modal-body rounded-0  border-0 modal-styling">
+                    <p class="modal-styling">Due date: {{ payment.payment_date }}</p>
+                    <p class="modal-styling">Account: {{ payment.payment_account }}</p>
+                    <p class="modal-styling">Category: {{ payment.payment_category }}</p>
+                    <p class="modal-styling">Payment owner: {{ payment.payment_owner }}</p>
+                    <p class="modal-styling">Completion date: {{ payment.payment_completion_date }}</p>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn colour-reverse" data-dismiss="modal">Close</button>
+                <div class="modal-footer rounded-0  border-0 modal-styling modal-positioning">
+                    <button type="button" class="btn colour-true modal-positioning" data-dismiss="modal"><strong class="modal-positioning">Close</strong></button>
                 </div>
             </div>
         </div>
@@ -76,18 +76,16 @@
     <!-- Deletion Modal -->
     <div class="modal fade" id="deletePaymentModal-{{ payment.payment_recipient }}" tabindex="-1" role="dialog" aria-labelledby="deletePaymentModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content rounded-0">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deletePaymentModalTitle">Do you really want to delete the payment for:</h5>
+            <div class="modal-content rounded-0 border-0 modal-styling modal-positioning">
+                <div class="modal-header rounded-0 border-0 modal-styling modal-positioning">
+                    <p class="modal-title rounded-0 border-0 modal-styling modal-positioning" id="deletePaymentModalTitle">Do you really want to delete the payment for:</p>
                 </div>
-                <div class="modal-body">
-                    <p>{{ payment.payment_recipient }}</p>
-                </div>
-                <div class="modal-footer">
+                <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">{{ payment.payment_recipient }}</strong></h3>
+                <div class="modal-footer rounded-0 border-0 modal-styling modal-positioning">
                     <a href="/delete_payment/{{ payment.id }}">
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-danger modal-positioning"><strong class=" btn-danger modal-positioning">Delete</strong></button>
                     </a>
-                    <button type="button" class="btn colour-reverse" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn colour-true modal-positioning" data-dismiss="modal"><strong class="modal-positioning">Cancel</strong></button>
                 </div>
             </div>
         </div>
