@@ -79,11 +79,32 @@
             <a href="/edit_payment/{{ payment.id }}">
                 <i class="fas fa-edit colour-true"></i>
             </a>
-            <a href="/delete_payment/{{ payment.id }}">
+            <a class="" data-toggle="modal" data-target="#deletePaymentModal">
                 <i class="fas fa-trash colour-true"></i>
             </a>
         </div>
     </div>
+
+    <!-- Modal -->
+        <div class="modal fade" id="deletePaymentModal" tabindex="-1" role="dialog" aria-labelledby="deletePaymentModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="paymentInformationModalTitle">Do you really want to delete the payment for:</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ payment.payment_recipient }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/delete_payment/{{ payment.id }}">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </a>
+                        <button type="button" class="btn colour-reverse" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal end  -->
 
     {% empty %}
     <div class="row">

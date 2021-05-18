@@ -14,10 +14,4 @@
             </p>
         </div>
     </form>
-    {% for payment in payments %} 
-    <a href="/delete_payment/{{ payment.id }}">
-            <button type="button" class="btn">Delete</button>
-        </a>
-        {% endfor %}
-    </div>
 {% endblock %}
