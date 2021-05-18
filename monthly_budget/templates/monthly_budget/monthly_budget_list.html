@@ -12,28 +12,6 @@
             </a>
         </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="paymentInformationModal" tabindex="-1" role="dialog" aria-labelledby="paymentInformationModalTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="paymentInformationModalTitle">{{ payment.payment_recipient }}</h5>
-                    </div>
-                    <div class="modal-body">
-                        <p>Due date: {{ payment.payment_date }}</p>
-                        <p>Account: {{ payment.payment_account }}</p>
-                        <p>Category: {{ payment.payment_category }}</p>
-                        <p>Payment owner: {{ payment.payment_owner }}</p>
-                        <p>Completion date: {{ payment.payment_completion_date }}</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn colour-reverse" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal end  -->
-
         {% if payment.has_paid %}
         <div class="col-8 payment-detail-boxes payment-made">
             {{ payment.payment_recipient }}
@@ -53,23 +31,7 @@
             {{ payment.instalment_amount }}
         </div>
         {% endif %}
-       
-        
     </div>
-
-    <!-- <div class="row">
-        <div class="col-4">Due date: {{ payment.payment_date }}</div>
-        <div class="col-4">{{ payment.payment_account }}</div>
-        <div class="col-4">Completion: {{ payment.payment_completion_date }}</div>
-    </div>
-    <div class="row">
-        <div class="col-6">{{ payment.payment_category }}</div>
-        <div class="col-6">{{ payment.payment_owner }}</div>
-            
-    
-        </div>
-    </div> -->
-           
    
     <div class="row payment-options">
         <div class="col payment-options-btn-box">
@@ -85,27 +47,6 @@
         </div>
     </div>
 
-    <!-- Modal -->
-        <div class="modal fade" id="deletePaymentModal" tabindex="-1" role="dialog" aria-labelledby="deletePaymentModalTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="paymentInformationModalTitle">Do you really want to delete the payment for:</h5>
-                    </div>
-                    <div class="modal-body">
-                        <p>{{ payment.payment_recipient }}</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="/delete_payment/{{ payment.id }}">
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </a>
-                        <button type="button" class="btn colour-reverse" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal end  -->
-
     {% empty %}
     <div class="row">
         <div class="col-12">
@@ -113,7 +54,6 @@
         </div>
     </div>
     {% endfor %}
-
     
     <h1>{{ sumOfPayments }}</h1>
     <h1>{{ sumOfIncome }}</h1>
@@ -122,10 +62,6 @@
     <h1>{{ remainingMonthlyPaymentsJoint }}</h1>
     <h1>{{ remainingMonthlyPaymentsBen }}</h1>
     <h1>{{ bankAccountAmount }}</h1>
-     
-    
-
-
 
     <!-- <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
@@ -140,5 +76,48 @@
     </nav> -->
     
 </div>
+
+<!-- Payment Info Modal -->
+<div class="modal fade" id="paymentInformationModal" tabindex="-1" role="dialog" aria-labelledby="paymentInformationModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paymentInformationModalTitle">{{ payment.payment_recipient }}</h5>
+            </div>
+            <div class="modal-body">
+                <p>Due date: {{ payment.payment_date }}</p>
+                <p>Account: {{ payment.payment_account }}</p>
+                <p>Category: {{ payment.payment_category }}</p>
+                <p>Payment owner: {{ payment.payment_owner }}</p>
+                <p>Completion date: {{ payment.payment_completion_date }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn colour-reverse" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Payment Info Modal -->
+
+<!-- Deletion Modal -->
+<div class="modal fade" id="deletePaymentModal" tabindex="-1" role="dialog" aria-labelledby="deletePaymentModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deletePaymentModalTitle">Do you really want to delete the payment for:</h5>
+            </div>
+            <div class="modal-body">
+                <p>{{ payment.payment_recipient }}</p>
+            </div>
+            <div class="modal-footer">
+                <a href="/delete_payment/{{ payment.id }}">
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </a>
+                <button type="button" class="btn colour-reverse" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Deletion Modal -->
 
 {% endblock %}
