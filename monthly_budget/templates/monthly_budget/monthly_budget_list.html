@@ -36,7 +36,11 @@
     <div class="row payment-options">
         <div class="col payment-options-btn-box">
             <a href="/has_paid/{{ payment.id }}">
+                {% if payment.has_paid %}
                 <i class="fas fa-check colour-true"></i>
+                {% else %}
+                <i class="fas fa-times colour-true"></i>
+                {% endif %}
             </a>
             <a href="/edit_payment/{{ payment.id }}">
                 <i class="fas fa-edit colour-true"></i>
