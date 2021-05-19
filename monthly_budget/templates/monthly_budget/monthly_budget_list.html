@@ -37,9 +37,9 @@
         <div class="col payment-options-btn-box">
             <a href="/has_paid/{{ payment.id }}">
                 {% if payment.has_paid %}
-                <i class="fas fa-check colour-true"></i>
+                <i class="fas fa-undo colour-true"></i>
                 {% else %}
-                <i class="fas fa-times colour-true"></i>
+                <i class="fas fa-check colour-true"></i>
                 {% endif %}
             </a>
             <a href="/edit_payment/{{ payment.id }}">
@@ -99,27 +99,9 @@
         </div>
     </div>
     {% endfor %}
-    
-    <h1>{{ sumOfPayments }}</h1>
-    <h1>{{ sumOfIncome }}</h1>
-    <h1>{{ incomePaymentsDifference }}</h1>
-    <h1>{{ remainingMonthlyPaymentsTotal }}</h1>
-    <h1>{{ remainingMonthlyPaymentsJoint }}</h1>
-    <h1>{{ remainingMonthlyPaymentsBen }}</h1>
-    <h1>{{ bankAccountAmount }}</h1>
-
-    <!-- <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-            <h4 class="text-white">Collapsed content</h4>
-            <span class="text-muted">Toggleable via the navbar brand.</span>
-        </div>
-    </div>
-    <nav class="navbar fixed-bottom colour-reverse">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-pound-sign colour-reverse"></i>
-        </button>
-    </nav> -->
 
 </div>
 
 {% endblock %}
+
+ 

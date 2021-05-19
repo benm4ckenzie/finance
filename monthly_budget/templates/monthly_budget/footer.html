@@ -1,0 +1,44 @@
+<nav class="navbar fixed-bottom colour-reverse">
+    <a class="" data-toggle="modal" data-target="#accountCalculatorModal">
+        <i class="fas fa-calculator colour-reverse"></i>
+    </a>
+    <a class="" data-toggle="modal" data-target="#incomeOutgoingsModal">
+        <i class="fas fa-pound-sign colour-reverse"></i>
+    </a>
+</nav>
+
+<!-- Outgoing / income Modal -->
+<div class="modal fade" id="incomeOutgoingsModal" tabindex="-1" role="dialog" aria-labelledby="incomeOutgoingsModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-0 border-0 modal-styling modal-positioning">
+            <div class="modal-header rounded-0 border-0 modal-styling modal-positioning">
+                <p class="modal-title rounded-0 border-0 modal-styling modal-positioning" id="incomeOutgoingsModalTitle">Income & outgoings</p>
+            </div>
+            <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">Total income: £{{ sumOfIncome }}</strong></h3>
+            <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">Total outgoings: £{{ sumOfPayments }}</strong></h3>
+            <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">Difference: £{{ incomePaymentsDifference }}</strong></h3>
+            <div class="modal-footer rounded-0 border-0 modal-styling modal-positioning">
+                <button type="button" class="btn colour-true modal-positioning" data-dismiss="modal"><strong class="modal-positioning">Close</strong></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Outgoing / income Modal -->
+
+<!-- Account Calculator Modal -->
+<div class="modal fade" id="accountCalculatorModal" tabindex="-1" role="dialog" aria-labelledby="accountCalculatorModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-0 border-0 modal-styling modal-positioning">
+            <div class="modal-header rounded-0 border-0 modal-styling modal-positioning">
+                <p class="modal-title rounded-0 border-0 modal-styling modal-positioning" id="accountCalculatorModalTitle">Accounts</p>
+            </div>
+            <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">Remaining monthly payments: £{{ remainingMonthlyPaymentsTotal }}</strong></h3>
+            <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">Starling (Joint) required: £{{ remainingMonthlyPaymentsJoint }}</strong></h3>
+            <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">Starling (Ben personal) required: £{{ remainingMonthlyPaymentsBen }}</strong></h3>
+            <div class="modal-footer rounded-0 border-0 modal-styling modal-positioning">
+                <button type="button" class="btn colour-true modal-positioning" data-dismiss="modal"><strong class="modal-positioning">Close</strong></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Account Calculator Modal -->
