@@ -2,105 +2,101 @@
 
 {% block content %}
 
-<div class="container-fluid">
-
-    {% for payment in payments %} 
-    <div class="row payment-details">
-        <div class="col-1 payment-detail-boxes">
-            <a class="payment-detail-boxes" data-toggle="modal" data-target="#paymentInformationModal-{{ payment.payment_recipient }}">
-                <i class="fas fa-info-circle colour-true"></i>
-            </a>
-        </div>
-
-        {% if payment.has_paid %}
-        <div class="col-8 payment-detail-boxes payment-made">
-            {{ payment.payment_recipient }}
-        </div>
-        {% else %}
-        <div class="col-8 payment-detail-boxes">
-            {{ payment.payment_recipient }}
-        </div>
-        {% endif %}
-
-        {% if payment.has_paid %}
-        <div class="col-3 payment-detail-boxes payment-made">
-            {{ payment.instalment_amount }}
-        </div>
-        {% else %}
-        <div class="col-3 payment-detail-boxes">
-            {{ payment.instalment_amount }}
-        </div>
-        {% endif %}
-    </div>
-   
-    <div class="row payment-options">
-        <div class="col payment-options-btn-box">
-            <a href="/has_paid/{{ payment.id }}">
-                {% if payment.has_paid %}
-                <i class="fas fa-undo colour-true"></i>
-                {% else %}
-                <i class="fas fa-check colour-true"></i>
-                {% endif %}
-            </a>
-            <a href="/edit_payment/{{ payment.id }}">
-                <i class="fas fa-edit colour-true"></i>
-            </a>
-            <a class="" data-toggle="modal" data-target="#deletePaymentModal-{{ payment.payment_recipient }}">
-                <i class="fas fa-trash colour-true"></i>
-            </a>
-        </div>
+{% for payment in payments %} 
+<div class="row payment-details">
+    <div class="col-1 payment-detail-boxes">
+        <a class="payment-detail-boxes" data-toggle="modal" data-target="#paymentInformationModal-{{ payment.payment_recipient }}">
+            <i class="fas fa-info-circle colour-true"></i>
+        </a>
     </div>
 
-    <!-- Payment Info Modal -->
-    <div class="modal fade" id="paymentInformationModal-{{ payment.payment_recipient }}" tabindex="-1" role="dialog" aria-labelledby="paymentInformationModalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content rounded-0 border-0 modal-styling modal-positioning">
-                <div class="modal-header rounded-0  border-0 modal-styling modal-positioning">
-                    <h3 class="modal-title rounded-0  border-0 modal-styling modal-positioning" id="paymentInformationModalTitle"><strong class="modal-styling modal-positioning">{{ payment.payment_recipient }}</strong></h3>
-                </div>
-                <div class="modal-body rounded-0  border-0 modal-styling">
-                    <p class="modal-styling">Due date: {{ payment.payment_date }}</p>
-                    <p class="modal-styling">Account: {{ payment.payment_account }}</p>
-                    <p class="modal-styling">Category: {{ payment.payment_category }}</p>
-                    <p class="modal-styling">Payment owner: {{ payment.payment_owner }}</p>
-                    <p class="modal-styling">Completion date: {{ payment.payment_completion_date }}</p>
-                </div>
-                <div class="modal-footer rounded-0  border-0 modal-styling modal-positioning">
-                    <button type="button" class="btn colour-true modal-positioning" data-dismiss="modal"><strong class="modal-positioning">Close</strong></button>
-                </div>
-            </div>
-        </div>
+    {% if payment.has_paid %}
+    <div class="col-8 payment-detail-boxes payment-made">
+        {{ payment.payment_recipient }}
     </div>
-    <!-- End Payment Info Modal -->
-
-    <!-- Deletion Modal -->
-    <div class="modal fade" id="deletePaymentModal-{{ payment.payment_recipient }}" tabindex="-1" role="dialog" aria-labelledby="deletePaymentModalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content rounded-0 border-0 modal-styling modal-positioning">
-                <div class="modal-header rounded-0 border-0 modal-styling modal-positioning">
-                    <p class="modal-title rounded-0 border-0 modal-styling modal-positioning" id="deletePaymentModalTitle">Do you really want to delete the payment for:</p>
-                </div>
-                <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">{{ payment.payment_recipient }}</strong></h3>
-                <div class="modal-footer rounded-0 border-0 modal-styling modal-positioning">
-                    <a href="/delete_payment/{{ payment.id }}">
-                        <button type="button" class="btn btn-danger modal-positioning"><strong class=" btn-danger modal-positioning">Delete</strong></button>
-                    </a>
-                    <button type="button" class="btn colour-true modal-positioning" data-dismiss="modal"><strong class="modal-positioning">Cancel</strong></button>
-                </div>
-            </div>
-        </div>
+    {% else %}
+    <div class="col-8 payment-detail-boxes">
+        {{ payment.payment_recipient }}
     </div>
-    <!-- End Deletion Modal -->
+    {% endif %}
 
-    {% empty %}
-    <div class="row">
-        <div class="col-12">
-            <p>There are no payments to be made.</p>
-        </div>
+    {% if payment.has_paid %}
+    <div class="col-3 payment-detail-boxes payment-made">
+        {{ payment.instalment_amount }}
     </div>
-    {% endfor %}
-
+    {% else %}
+    <div class="col-3 payment-detail-boxes">
+        {{ payment.instalment_amount }}
+    </div>
+    {% endif %}
 </div>
+
+<div class="row payment-options">
+    <div class="col payment-options-btn-box">
+        <a href="/has_paid/{{ payment.id }}">
+            {% if payment.has_paid %}
+            <i class="fas fa-undo colour-true"></i>
+            {% else %}
+            <i class="fas fa-check colour-true"></i>
+            {% endif %}
+        </a>
+        <a href="/edit_payment/{{ payment.id }}">
+            <i class="fas fa-edit colour-true"></i>
+        </a>
+        <a class="" data-toggle="modal" data-target="#deletePaymentModal-{{ payment.payment_recipient }}">
+            <i class="fas fa-trash colour-true"></i>
+        </a>
+    </div>
+</div>
+
+<!-- Payment Info Modal -->
+<div class="modal fade" id="paymentInformationModal-{{ payment.payment_recipient }}" tabindex="-1" role="dialog" aria-labelledby="paymentInformationModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-0 border-0 modal-styling modal-positioning">
+            <div class="modal-header rounded-0 border-0 modal-styling modal-positioning">
+                <h3 class="modal-title rounded-0 border-0 modal-styling modal-positioning" id="paymentInformationModalTitle"><strong class="modal-styling modal-positioning">{{ payment.payment_recipient }}</strong></h3>
+            </div>
+            <div class="modal-body rounded-0 border-0 modal-styling">
+                <p class="modal-styling">Due date: {{ payment.payment_date }}</p>
+                <p class="modal-styling">Account: {{ payment.payment_account }}</p>
+                <p class="modal-styling">Category: {{ payment.payment_category }}</p>
+                <p class="modal-styling">Payment owner: {{ payment.payment_owner }}</p>
+                <p class="modal-styling">Completion date: {{ payment.payment_completion_date }}</p>
+            </div>
+            <div class="modal-footer rounded-0  border-0 modal-styling modal-positioning">
+                <button type="button" class="btn colour-true modal-positioning" data-dismiss="modal"><strong class="modal-positioning">Close</strong></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Payment Info Modal -->
+
+<!-- Deletion Modal -->
+<div class="modal fade" id="deletePaymentModal-{{ payment.payment_recipient }}" tabindex="-1" role="dialog" aria-labelledby="deletePaymentModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-0 border-0 modal-styling modal-positioning">
+            <div class="modal-header rounded-0 border-0 modal-styling modal-positioning">
+                <p class="modal-title rounded-0 border-0 modal-styling modal-positioning" id="deletePaymentModalTitle">Do you really want to delete the payment for:</p>
+            </div>
+            <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">{{ payment.payment_recipient }}</strong></h3>
+            <div class="modal-footer rounded-0 border-0 modal-styling modal-positioning">
+                <a href="/delete_payment/{{ payment.id }}">
+                    <button type="button" class="btn btn-danger modal-positioning"><strong class=" btn-danger modal-positioning">Delete</strong></button>
+                </a>
+                <button type="button" class="btn colour-true modal-positioning" data-dismiss="modal"><strong class="modal-positioning">Cancel</strong></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Deletion Modal -->
+
+{% empty %}
+<div class="row">
+    <div class="col-12">
+        <p>There are no payments to be made.</p>
+    </div>
+</div>
+{% endfor %}
 
 {% endblock %}
 

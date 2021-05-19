@@ -1,9 +1,9 @@
 <nav class="navbar fixed-bottom colour-reverse">
     <a class="" data-toggle="modal" data-target="#accountCalculatorModal">
-        <i class="fas fa-calculator colour-reverse"></i>
+        <i class="fas fa-calculator fa-2x colour-reverse"></i>
     </a>
     <a class="" data-toggle="modal" data-target="#incomeOutgoingsModal">
-        <i class="fas fa-pound-sign colour-reverse"></i>
+        <i class="fas fa-pound-sign fa-2x colour-reverse"></i>
     </a>
 </nav>
 
@@ -14,9 +14,11 @@
             <div class="modal-header rounded-0 border-0 modal-styling modal-positioning">
                 <p class="modal-title rounded-0 border-0 modal-styling modal-positioning" id="incomeOutgoingsModalTitle">Income & outgoings</p>
             </div>
-            <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">Total income: £{{ sumOfIncome }}</strong></h3>
-            <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">Total outgoings: £{{ sumOfPayments }}</strong></h3>
-            <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">Difference: £{{ incomePaymentsDifference }}</strong></h3>
+            <div class="modal-body rounded-0 border-0 modal-styling">
+                <h3 class="modal-styling"><strong class="modal-styling">Total income: </strong>£{{ sumOfIncome }}</h3>
+                <h3 class="modal-styling"><strong class="modal-styling">Total outgoings: </strong>£{{ sumOfPayments }}</h3>
+                <h3 class="modal-styling"><strong class="modal-styling">Difference: </strong>£{{ incomePaymentsDifference }}</h3>
+            </div>
             <div class="modal-footer rounded-0 border-0 modal-styling modal-positioning">
                 <button type="button" class="btn colour-true modal-positioning" data-dismiss="modal"><strong class="modal-positioning">Close</strong></button>
             </div>
@@ -30,11 +32,35 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content rounded-0 border-0 modal-styling modal-positioning">
             <div class="modal-header rounded-0 border-0 modal-styling modal-positioning">
-                <p class="modal-title rounded-0 border-0 modal-styling modal-positioning" id="accountCalculatorModalTitle">Accounts</p>
+                <h3 class="modal-title rounded-0 border-0 modal-styling modal-positioning" id="accountCalculatorModalTitle"><strong class="modal-styling modal-positioning">Accounts</strong></h3>
             </div>
-            <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">Remaining monthly payments: £{{ remainingMonthlyPaymentsTotal }}</strong></h3>
-            <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">Starling (Joint) required: £{{ remainingMonthlyPaymentsJoint }}</strong></h3>
-            <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">Starling (Ben personal) required: £{{ remainingMonthlyPaymentsBen }}</strong></h3>
+            <div class="modal-body rounded-0 border-0 modal-styling">
+                <div class="row modal-styling modal-positioning">
+                    <p class="col modal-styling modal-positioning">Still to be paid: £{{ remainingMonthlyPaymentsTotal }}</p>
+                </div>
+                <div class="row modal-styling modal-positioning">
+                    <p class="col-4 modal-styling modal-positioning"></p>
+                    <p class="col-4 modal-styling modal-positioning">Joint account</p>
+                    <p class="col-4 modal-styling modal-positioning">Personal account</p>
+                </div>
+                <div class="row modal-styling modal-positioning">
+                    <p class="col-4 modal-styling modal-positioning"><strong class="modal-styling modal-positioning">Oustanding</strong></p>
+                    <p class="col-4 modal-styling modal-positioning">£{{ remainingMonthlyPaymentsJoint }}</p>
+                    <p class="col-4 modal-styling modal-positioning">£{{ remainingMonthlyPaymentsBen }}</p>
+                </div>
+                <div class="row modal-styling modal-positioning">
+                    <p class="col-4 modal-styling modal-positioning"><strong class="modal-styling modal-positioning">Balance</strong></p>
+                    <p class="col-4 modal-styling modal-positioning">£</p>
+                    <p class="col-4 modal-styling modal-positioning">£</p>
+                </div>
+                <div class="row modal-styling modal-positioning">
+                    <p class="col-4 modal-styling modal-positioning"><strong class="modal-styling modal-positioning">Required</strong></p>
+                    <p class="col-4 modal-styling modal-positioning">£</p>
+                    <p class="col-4 modal-styling modal-positioning">£</p>
+                </div>
+                
+            </div>
+            
             <div class="modal-footer rounded-0 border-0 modal-styling modal-positioning">
                 <button type="button" class="btn colour-true modal-positioning" data-dismiss="modal"><strong class="modal-positioning">Close</strong></button>
             </div>
@@ -42,3 +68,5 @@
     </div>
 </div>
 <!-- Account Calculator Modal -->
+
+
