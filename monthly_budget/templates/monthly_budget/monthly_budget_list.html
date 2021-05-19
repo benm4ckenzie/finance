@@ -52,19 +52,19 @@
 <!-- Payment Info Modal -->
 <div class="modal fade" id="paymentInformationModal-{{ payment.payment_recipient }}" tabindex="-1" role="dialog" aria-labelledby="paymentInformationModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content rounded-0 border-0 modal-styling modal-positioning">
-            <div class="modal-header rounded-0 border-0 modal-styling modal-positioning">
-                <h3 class="modal-title rounded-0 border-0 modal-styling modal-positioning" id="paymentInformationModalTitle"><strong class="modal-styling modal-positioning">{{ payment.payment_recipient }}</strong></h3>
+        <div class="modal-content rounded-0 border-0 colour-reverse positioning">
+            <div class="modal-header rounded-0 border-0 colour-reverse positioning">
+                <h3 class="modal-title rounded-0 border-0 colour-reverse positioning" id="paymentInformationModalTitle"><strong class="colour-reverse positioning">{{ payment.payment_recipient }}</strong></h3>
             </div>
-            <div class="modal-body rounded-0 border-0 modal-styling">
-                <p class="modal-styling">Due date: {{ payment.payment_date }}</p>
-                <p class="modal-styling">Account: {{ payment.payment_account }}</p>
-                <p class="modal-styling">Category: {{ payment.payment_category }}</p>
-                <p class="modal-styling">Payment owner: {{ payment.payment_owner }}</p>
-                <p class="modal-styling">Completion date: {{ payment.payment_completion_date }}</p>
+            <div class="modal-body rounded-0 border-0 colour-reverse">
+                <p class="colour-reverse">Due date: {{ payment.payment_date }}</p>
+                <p class="colour-reverse">Account: {{ payment.payment_account }}</p>
+                <p class="colour-reverse">Category: {{ payment.payment_category }}</p>
+                <p class="colour-reverse">Payment owner: {{ payment.payment_owner }}</p>
+                <p class="colour-reverse">Completion date: {{ payment.payment_completion_date }}</p>
             </div>
-            <div class="modal-footer rounded-0  border-0 modal-styling modal-positioning">
-                <button type="button" class="btn colour-true modal-positioning" data-dismiss="modal"><strong class="modal-positioning">Close</strong></button>
+            <div class="modal-footer rounded-0  border-0 colour-reverse positioning">
+                <button type="button" class="btn colour-true positioning" data-dismiss="modal"><strong class="positioning">Close</strong></button>
             </div>
         </div>
     </div>
@@ -74,16 +74,16 @@
 <!-- Deletion Modal -->
 <div class="modal fade" id="deletePaymentModal-{{ payment.payment_recipient }}" tabindex="-1" role="dialog" aria-labelledby="deletePaymentModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content rounded-0 border-0 modal-styling modal-positioning">
-            <div class="modal-header rounded-0 border-0 modal-styling modal-positioning">
-                <p class="modal-title rounded-0 border-0 modal-styling modal-positioning" id="deletePaymentModalTitle">Do you really want to delete the payment for:</p>
+        <div class="modal-content rounded-0 border-0 colour-reverse positioning">
+            <div class="modal-header rounded-0 border-0 colour-reverse positioning">
+                <p class="modal-title rounded-0 border-0 colour-reverse positioning" id="deletePaymentModalTitle">Do you really want to delete the payment for:</p>
             </div>
-            <h3 class="modal-body rounded-0 border-0 modal-styling modal-positioning"><strong class="modal-styling">{{ payment.payment_recipient }}</strong></h3>
-            <div class="modal-footer rounded-0 border-0 modal-styling modal-positioning">
+            <h3 class="modal-body rounded-0 border-0 colour-reverse positioning"><strong class="colour-reverse">{{ payment.payment_recipient }}</strong></h3>
+            <div class="modal-footer rounded-0 border-0 colour-reverse positioning">
                 <a href="/delete_payment/{{ payment.id }}">
-                    <button type="button" class="btn btn-danger modal-positioning"><strong class=" btn-danger modal-positioning">Delete</strong></button>
+                    <button type="button" class="btn btn-danger positioning"><strong class=" btn-danger positioning">Delete</strong></button>
                 </a>
-                <button type="button" class="btn colour-true modal-positioning" data-dismiss="modal"><strong class="modal-positioning">Cancel</strong></button>
+                <button type="button" class="btn colour-true positioning" data-dismiss="modal"><strong class="positioning">Cancel</strong></button>
             </div>
         </div>
     </div>

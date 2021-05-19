@@ -12,14 +12,21 @@
     padding-bottom: 51px;
 }
 
+.positioning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .colour-true {
-    background-color: #192851;
-    color: #68D9CF;
+    background-color: #192851 !important;
+    color: #68D9CF !important;
 }
 
 .colour-reverse {
-    background-color: #68D9CF;
-    color: #192851;
+    background-color: #68D9CF !important;
+    color: #192851 !important;
 }
 
 .payment-made {
@@ -43,16 +50,6 @@
     width: 100%;
     margin: 0 !important;
     padding: 0px !important;
-}
-
-.dropdown-option {
-padding: 5px;
-margin-top: 15px;
-margin-bottom: 15px;
-}
-
-.dropdown-divider {
-    border-color: #192851 !important;
 }
 
 .payment-details {
@@ -79,16 +76,8 @@ margin-bottom: 15px;
     justify-content: space-around;
     align-items: center;
 }
-/* --------------------------------------------------------------------------------------MODAL */
-.modal-styling {
-    background-color: #68D9CF !important;
-    color: #192851 !important;
-}
 
-.modal-positioning {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
+
+
+
 
