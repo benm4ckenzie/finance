@@ -12,12 +12,18 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content rounded-0 border-0 colour-reverse positioning">
             <div class="modal-header rounded-0 border-0 colour-reverse positioning">
-                <p class="modal-title rounded-0 border-0 colour-reverse positioning" id="incomeOutgoingsModalTitle">Income & outgoings</p>
+                <h3 class="modal-title rounded-0 border-0 colour-reverse positioning" id="incomeOutgoingsModalTitle"><strong class="colour-reverse positioning">Income & outgoings</strong></h3>
             </div>
             <div class="modal-body rounded-0 border-0 colour-reverse">
-                <h3 class="colour-reverse"><strong class="colour-reverse">Total income: </strong>£{{ sumOfIncome }}</h3>
-                <h3 class="colour-reverse"><strong class="colour-reverse">Total outgoings: </strong>£{{ sumOfPayments }}</h3>
-                <h3 class="colour-reverse"><strong class="colour-reverse">Difference: </strong>£{{ incomePaymentsDifference }}</h3>
+                <div class="row colour-reverse positioning">
+                <p class="col colour-reverse positioning">Total income: £{{ sumOfIncome }}</p>
+                </div>
+                <div class="row colour-reverse positioning">
+                <p class="col colour-reverse positioning">Total outgoings: £{{ sumOfPayments }}</p>
+                </div>
+                <div class="row colour-reverse positioning">
+                <p class="col colour-reverse positioning">Difference: £{{ incomePaymentsDifference }}</p>
+                </div>
             </div>
             <div class="modal-footer rounded-0 border-0 colour-reverse positioning">
                 <button type="button" class="btn colour-true positioning" data-dismiss="modal"><strong class="positioning">Close</strong></button>
