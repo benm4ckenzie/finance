@@ -2,14 +2,14 @@
 
 {% block content %}
 
-    <h1>Edit a payment</h1>
+    <p>Add bank balances</p>
 
-    <form method="POST">
+    <form method="POST" action="balance">
         {% csrf_token %}
-        {{ editPaymentForm.as_p }}
+        {{ balanceForm.as_p }}
         <div class="">
             <p>
-                <button type="submit">Update payment</button>
+                <button type="submit">Add balance</button>
             </p>
         </div>
     </form>

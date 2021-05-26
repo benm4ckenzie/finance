@@ -30,5 +30,6 @@ urlpatterns = [
     path('edit_income/<income_id>', views.edit_income, name='edit_income'),
     path('has_recieved/<income_id>', views.has_recieved, name='has_recieved'),
     path('delete_income/<income_id>', views.delete_income, name='delete_income'),
-    path('edit_balance/<income_id>', views.edit_balance, name='edit_balance')
+    path('balance', views.add_balance, name='balance'),
+    path('edit_balance/<balance_id>', views.edit_balance, name='edit_balance')
 ]

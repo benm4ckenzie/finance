@@ -34,6 +34,7 @@
 <!-- End Outgoing / income Modal -->
 
 <!-- Account Calculator Modal -->
+{% for balance in balances %}
 <div class="modal fade" id="accountCalculatorModal" tabindex="-1" role="dialog" aria-labelledby="accountCalculatorModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content rounded-0 border-0 colour-reverse positioning">
@@ -56,11 +57,11 @@
                 </div>
                 <div class="row colour-reverse positioning">
                     <p class="col-4 colour-reverse positioning"><strong class="colour-reverse positioning">Balance</strong></p>
-                    <p class="col-4 colour-reverse positioning">£{{ jointAccountBalance }}</p>
-                    <p class="col-4 colour-reverse positioning">£{{ personalAccountBalance }}</p>
+                    <p class="col-4 colour-reverse positioning">£{{ balance.joint_account_balance }}</p>
+                    <p class="col-4 colour-reverse positioning">£{{ balance.personal_account_balance }}</p>
                 </div>
                 <div class="row colour-reverse positioning">
-                    <p class="col-4 colour-reverse positioning"><strong class="colour-reverse positioning">Required</strong></p>
+                    <p class="col-4 colour-reverse positioning"><strong class="colour-reverse positioning">Difference</strong></p>
                     <p class="col-4 colour-reverse positioning">£{{ jointAccountRequirement }}</p>
                     <p class="col-4 colour-reverse positioning">£{{ personalAccountRequirement }}</p>
                 </div>
@@ -68,11 +69,15 @@
             </div>
             
             <div class="modal-footer rounded-0 border-0 colour-reverse positioning">
+                 <a href="/edit_balance/{{ balance.id }}">
+                    <button type="button" class="btn btn-success positioning"><strong class=" btn-success positioning">Update</strong></button>
+                </a>
                 <button type="button" class="btn colour-true positioning" data-dismiss="modal"><strong class="positioning">Close</strong></button>
             </div>
         </div>
     </div>
 </div>
+{% endfor %}
 <!-- Account Calculator Modal -->
 
 

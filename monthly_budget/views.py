@@ -22,10 +22,9 @@ def get_monthly_budget_list(request):
     personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
     context = {
         'payments': payments,
+        'balances': balances,
         'sumOfPayments': sumOfPayments,
         'sumOfIncome': sumOfIncome,
-        'personalAccountBalance': personalAccountBalance,
-        'jointAccountBalance': jointAccountBalance,
         'personalAccountRequirement': personalAccountRequirement,
         'jointAccountRequirement': jointAccountRequirement,
         'differenceBetweenIncomeAndPayments': differenceBetweenIncomeAndPayments,
@@ -122,6 +121,19 @@ def delete_income(request, income_id):
     incomeItem = get_object_or_404(Income, id=income_id)
     incomeItem.delete()
     return redirect('get_monthly_income_list')
+
+
+def add_balance(request):
+    if request.method == 'POST':
+        balanceForm = BalanceForm(request.POST)
+        if balanceForm.is_valid():
+            balanceForm.save()
+            return redirect('get_monthly_budget_list')
+    balanceForm = BalanceForm()
+    context = {
+        'balanceForm': balanceForm
+    }
+    return render(request, 'monthly_budget/add_balance.html', context)
 
 
 def edit_balance(request, balance_id):
