@@ -9,19 +9,31 @@ from .forms import PaymentForm, IncomeForm, BalanceForm
 def get_monthly_budget_list(request):
     payments = Payment.objects.all().order_by('payment_date')
     income = Income.objects.all()
+    balances = Balance.objects.all()
+
     sumOfPayments = payments.aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     sumOfIncome = income.aggregate(Sum('income_amount'))['income_amount__sum']
+
+    jointAccountBalance = balances.aggregate(Sum('joint_account_balance'))['joint_account_balance__sum']
+    personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
+
     remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
-    # response = requests.get('https://api.starlingbank.com/api/v2/accounts/2bc9b49f-5cf5-4909-9ff7-8c7e9155d4d7/balance')
-    # accountDetails = response.json()
+
     incomePaymentsDifference = sumOfIncome - sumOfPayments
+    jointAccountRequirement = jointAccountBalance - remainingMonthlyPaymentsJoint
+    personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
+    
     context = {
-    # 'bankAccountAmount': accountDetails['amount'],
         'payments': payments,
+        'balances': balances,
         'sumOfPayments': sumOfPayments,
         'sumOfIncome': sumOfIncome,
+        'personalAccountBalance': personalAccountBalance,
+        'personalAccountRequirement': personalAccountRequirement,
+        'jointAccountBalance': jointAccountBalance,
+        'jointAccountRequirement': jointAccountRequirement,
         'incomePaymentsDifference': incomePaymentsDifference,
         'remainingMonthlyPaymentsTotal': remainingMonthlyPaymentsTotal,
         'remainingMonthlyPaymentsJoint': remainingMonthlyPaymentsJoint,
