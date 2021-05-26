@@ -1,6 +1,5 @@
 from django import forms
-from .models import Payment
-from .models import Income
+from .models import Payment, Income, Balance
 
 class PaymentForm(forms.ModelForm):
     class Meta:
@@ -20,3 +19,9 @@ class IncomeForm(forms.ModelForm):
         fields = ['income_stream',
                 'income_amount',
                 'has_recieved']
+
+class BalanceForm(forms.ModelForm):
+    class Meta:
+        model = Balance
+        fields = ['joint_account_balance',
+                'personal_account_balance']

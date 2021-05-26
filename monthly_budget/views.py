@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Sum
-from .models import Payment
-from .models import Income
-from .forms import PaymentForm
-from .forms import IncomeForm
+from .models import Payment, Income, Balance
+from .forms import PaymentForm, IncomeForm, BalanceForm
 
 # Create your views here.
 
@@ -118,3 +116,17 @@ def delete_income(request, income_id):
     incomeItem = get_object_or_404(Income, id=income_id)
     incomeItem.delete()
     return redirect('get_monthly_income_list')
+
+
+def edit_balance(request, balance_id):
+    balanceItem = get_object_or_404(Balance, id=balance_id)
+    if request.method == 'POST':
+        balanceForm = BalanceForm(request.POST, instance=balanceItem)
+        if balanceForm.is_valid():
+            balanceForm.save()
+            return redirect('get_monthly_budget_list')
+    editBalanceForm = BalanceForm(instance=balanceItem)
+    context = {
+        'editBalanceForm': editBalanceForm
+    }
+    return render(request, 'monthly_budget/edit_balance.html', context)

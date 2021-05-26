@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <p>Edit a account balances</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ editIncomeForm.as_p }}
+        <div class="">
+            <p>
+                <button type="submit">Update balances</button>
+            </p>
+        </div>
+    </form>
+{% endblock %}

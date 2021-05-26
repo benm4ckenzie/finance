@@ -24,3 +24,11 @@ class Income(models.Model):
 
     def __str__(self):
         return self.income_stream
+
+
+class Balance(models.Model):
+    joint_account_balance = models.DecimalField(max_digits=7, decimal_places=2, null=False, blank=True)
+    personal_account_balance = models.DecimalField(max_digits=7, decimal_places=2, null=False, blank=True)
+
+    def __str__(self):
+        return str(self.joint_account_balance)
