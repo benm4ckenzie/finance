@@ -19,6 +19,10 @@
     width: 100%;
 }
 
+.modal-table-content-positioning{
+    text-align: center;
+}
+
 .colour-true {
     background-color: #192851 !important;
     color: #68D9CF !important;
