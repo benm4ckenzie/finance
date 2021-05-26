@@ -2,15 +2,14 @@
 
 {% block content %}
 
-    <p>Add bank balances</p>
+<form method="POST" action="balance">
+    {% csrf_token %}
+    {{ balanceForm.as_p }}
+    <div class="">
+        <p>
+                <button class="btn colour-reverse positioning" type="submit"><strong class="colour-reverse positioning">Add balance</strong></button>
+        </p>
+    </div>
+</form>
 
-    <form method="POST" action="balance">
-        {% csrf_token %}
-        {{ balanceForm.as_p }}
-        <div class="">
-            <p>
-                <button type="submit">Add balance</button>
-            </p>
-        </div>
-    </form>
 {% endblock %}
