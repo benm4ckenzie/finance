@@ -10,26 +10,25 @@ def get_monthly_budget_list(request):
     payments = Payment.objects.all().order_by('payment_date')
     income = Income.objects.all()
     balances = Balance.objects.all()
-    sumOfPayments = payments.aggregate(Sum('instalment_amount'))
-    sumOfIncome = income.aggregate(Sum('income_amount'))
-    jointAccountBalance = balances.aggregate(Sum('joint_account_balance'))
-    personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))
-    remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))
-    remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))
-    remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))
-    incomePaymentsDifference = sumOfIncome - sumOfPayments
+    sumOfPayments = payments.aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    sumOfIncome = income.aggregate(Sum('income_amount'))['income_amount__sum']
+    jointAccountBalance = balances.aggregate(Sum('joint_account_balance'))['joint_account_balance__sum']
+    personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
+    remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    differenceBetweenIncomeAndPayments = sumOfIncome - sumOfPayments
     jointAccountRequirement = jointAccountBalance - remainingMonthlyPaymentsJoint
     personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
     context = {
         'payments': payments,
-        'balances': balances,
         'sumOfPayments': sumOfPayments,
         'sumOfIncome': sumOfIncome,
         'personalAccountBalance': personalAccountBalance,
-        'personalAccountRequirement': personalAccountRequirement,
         'jointAccountBalance': jointAccountBalance,
+        'personalAccountRequirement': personalAccountRequirement,
         'jointAccountRequirement': jointAccountRequirement,
-        'incomePaymentsDifference': incomePaymentsDifference,
+        'differenceBetweenIncomeAndPayments': differenceBetweenIncomeAndPayments,
         'remainingMonthlyPaymentsTotal': remainingMonthlyPaymentsTotal,
         'remainingMonthlyPaymentsJoint': remainingMonthlyPaymentsJoint,
         'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen
