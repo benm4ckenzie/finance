@@ -14,7 +14,33 @@
             <div class="modal-header rounded-0 border-0 colour-reverse positioning">
                 <h3 class="modal-title rounded-0 border-0 colour-reverse positioning" id="incomeOutgoingsModalTitle"><strong class="colour-reverse positioning">Income & outgoings</strong></h3>
             </div>
-            <div class="modal-body rounded-0 border-0 colour-reverse">
+            <table class="colour-reverse">
+                <tr class="colour-reverse">
+                    <td class="colour-reverse">
+                    Total income:
+                    </td>
+                    <td class="colour-reverse">
+                    £{{ sumOfIncome }}
+                    </td>
+                </tr>
+                <tr class="colour-reverse">
+                    <td class="colour-reverse">
+                    Total outgoings:
+                    </td>
+                    <td class="colour-reverse">
+                    £{{ sumOfPayments }}
+                    </td>
+                </tr>
+                <tr class="colour-reverse">
+                    <td class="colour-reverse">
+                    Difference:
+                    </td>
+                    <td class="colour-reverse">
+                    £{{ differenceBetweenIncomeAndPayments }}
+                    </td>
+                </tr>
+            </table>
+            <!-- <div class="modal-body rounded-0 border-0 colour-reverse">
                 <div class="row colour-reverse positioning">
                 <p class="col colour-reverse positioning">Total income: £{{ sumOfIncome }}</p>
                 </div>
@@ -24,7 +50,7 @@
                 <div class="row colour-reverse positioning">
                 <p class="col colour-reverse positioning">Difference: £{{ differenceBetweenIncomeAndPayments }}</p>
                 </div>
-            </div>
+            </div> -->
             <div class="modal-footer rounded-0 border-0 colour-reverse positioning">
                 <button type="button" class="btn colour-true positioning" data-dismiss="modal"><strong class="positioning">Close</strong></button>
             </div>
