@@ -2,42 +2,73 @@
 
 {% block content %}
 
-    <h1>Monthly household income</h1>
+{% for income in incomes %}  
+<div class="row payment-details">
 
-    <table>
-        {% for income in incomes %}            
-            <tr>
+       {% if income.has_recieved %}
+    <div class="col-9 payment-detail-boxes payment-made">
+        {{ income.income_stream }}
+    </div>
+    {% else %}
+    <div class="col-9 payment-detail-boxes">
+        {{ income.income_stream }}
+    </div>
+    {% endif %}
+
+    {% if income.has_recieved %}
+    <div class="col-3 payment-detail-boxes payment-made">
+        {{ income.income_amount }}
+    </div>
+    {% else %}
+    <div class="col-3 payment-detail-boxes">
+        {{ income.income_amount }}
+    </div>
+    {% endif %}
+
+</div>
+
+<div class="row payment-options">
+    <div class="col payment-options-btn-box">
+        <a href="/has_recieved/{{ income.id }}">
             {% if income.has_recieved %}
-                <td>{{ income.income_stream }}</td>
-                {% else %}
-                <td><strike>{{ income.income_stream }}</strike></td>
-                {% endif %}
-                <td>{{ income.income_amount }}</td>
-                <td>
-                    <a href="/has_recieved/{{ income.id }}">
-                        <button>Recieved?</button>
-                    </a>
-                </td>
-                <td>
-                    <a href="/edit_income/{{ income.id }}">
-                        <button>Edit income</button>
-                    </a>
-                </td>
-                <td>
-                    <a href="/delete_income/{{ income.id }}">
-                        <button>Delete</button>
-                    </a>
-                </td>
-            </tr>
-        {% empty %}
-            <tr>
-                <td>There is no household income.</td>
-            </tr>
-        {% endfor %}
-    </table>
+            <i class="fas fa-undo colour-true"></i>
+            {% else %}
+            <i class="fas fa-check colour-true"></i>
+            {% endif %}
+        </a>
+        <a href="/edit_income/{{ income.id }}">
+            <i class="fas fa-edit colour-true"></i>
+        </a>
+        <a class="" data-toggle="modal" data-target="#deleteIncomeModal-{{ income.income_stream }}">
+            <i class="fas fa-trash colour-true"></i>
+        </a>
+    </div>
+</div>
 
-    <a href="/income">Add a new source of income</a>
 
-    <a href="/monthly_budget_list">View household direct debits</a>
     
+<!-- Deletion Modal -->
+<div class="modal fade" id="deleteIncomeModal-{{ income.income_stream }}" tabindex="-1" role="dialog" aria-labelledby="deleteIncomeModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-0 border-0 colour-reverse positioning">
+            <div class="modal-header rounded-0 border-0 colour-reverse positioning">
+                <p class="modal-title rounded-0 border-0 colour-reverse positioning" id="deleteIncomeModalTitle">Do you really want to delete the income for:</p>
+            </div>
+            <h3 class="modal-body rounded-0 border-0 colour-reverse positioning"><strong class="colour-reverse">{{ income.income_stream }}</strong></h3>
+            <div class="modal-footer rounded-0 border-0 colour-reverse positioning">
+                <a href="/delete_income/{{ income.id }}">
+                    <button type="button" class="btn btn-danger positioning"><strong class=" btn-danger positioning">Delete</strong></button>
+                </a>
+                <button type="button" class="btn colour-true positioning" data-dismiss="modal"><strong class="positioning">Cancel</strong></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Deletion Modal -->
+{% empty %}
+<tr>
+    <td>There is no household income.</td>
+</tr>
+{% endfor %}
+        
 {% endblock %}

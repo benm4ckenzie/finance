@@ -57,11 +57,48 @@
                 <h3 class="modal-title rounded-0 border-0 colour-reverse positioning" id="paymentInformationModalTitle"><strong class="colour-reverse positioning">{{ payment.payment_recipient }}</strong></h3>
             </div>
             <div class="modal-body rounded-0 border-0 colour-reverse">
-                <p class="colour-reverse">Due date: {{ payment.payment_date }}</p>
-                <p class="colour-reverse">Account: {{ payment.payment_account }}</p>
-                <p class="colour-reverse">Category: {{ payment.payment_category }}</p>
-                <p class="colour-reverse">Payment owner: {{ payment.payment_owner }}</p>
-                <p class="colour-reverse">Completion date: {{ payment.payment_completion_date }}</p>
+                <table class="colour-reverse">
+                    <tr class="colour-reverse">
+                        <td class="colour-reverse" style="text-align: right;">
+                        Due date: 
+                        </td>
+                        <td class="colour-reverse" style="text-align: centre;">
+                        {{ payment.payment_date }}
+                        </td>
+                    </tr>
+                    <tr class="colour-reverse">
+                        <td class="colour-reverse" style="text-align: right;">
+                        Account: 
+                        </td>
+                        <td class="colour-reverse" style="text-align: centre;">
+                        {{ payment.payment_account }}
+                        </td>
+                    </tr>
+                    <tr class="colour-reverse">
+                        <td class="colour-reverse" style="text-align: right;">
+                        Category: 
+                        </td>
+                        <td class="colour-reverse" style="text-align: centre;">
+                        {{ payment.payment_category }}
+                        </td>
+                    </tr>
+                    <tr class="colour-reverse">
+                        <td class="colour-reverse" style="text-align: right;">
+                        Payment owner: 
+                        </td>
+                        <td class="colour-reverse" style="text-align: centre;">
+                        {{ payment.payment_owner }}
+                        </td>
+                    </tr>
+                    <tr class="colour-reverse">
+                        <td class="colour-reverse" style="text-align: right;">
+                        Completion date: 
+                        </td>
+                        <td class="colour-reverse" style="text-align: centre;">
+                        {{ payment.payment_completion_date }}
+                        </td>
+                    </tr>
+                </table>
             </div>
             <div class="modal-footer rounded-0  border-0 colour-reverse positioning">
                 <button type="button" class="btn colour-true positioning" data-dismiss="modal"><strong class="positioning">Close</strong></button>
