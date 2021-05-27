@@ -10,10 +10,10 @@ def get_monthly_budget_list(request):
     payments = Payment.objects.all().order_by('payment_date')
     income = Income.objects.all()
     balances = Balance.objects.all()
-    sumOfPaymentsArray = payments.aggregate(Sum('instalment_amount'))['instalment_amount__sum']
-    sumOfPayments = sumOfPaymentsArray[1]
-    sumOfIncomeArray = income.aggregate(Sum('income_amount'))['income_amount__sum']
-    sumOfIncome = sumOfIncomeArray[1]
+    sumOfPayments = payments.aggregate(Sum('instalment_amount')).get('instalment_amount__sum')
+ 
+    sumOfIncome = income.aggregate(Sum('income_amount')).get('income_amount__sum')
+    
     remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
