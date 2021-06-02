@@ -7,10 +7,6 @@
     font-weight: bolder;
 }
 
-body{
-    background-color: #192851;
-}
-
 .container-fluid {
     padding-top: 46px;
     padding-bottom: 51px;
@@ -83,6 +79,11 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.table-border {
+    border-collapse: separate;
+    border-spacing: 10px;
 }
 
 
