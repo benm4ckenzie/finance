@@ -12,6 +12,7 @@ class Payment(models.Model):
     payment_recipient = models.CharField(max_length=50, null=False, blank=False)
     has_paid = models.BooleanField(null=False, blank=False, default=False)
     payment_completion_date = models.DateField(null=True, blank=True)
+    payment_note = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.payment_recipient
