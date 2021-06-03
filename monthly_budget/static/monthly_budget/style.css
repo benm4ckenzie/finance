@@ -53,6 +53,11 @@ html {
     color: #192851 !important;
 }
 
+.button-colour {
+    background-color: #D96871 !important;
+    color: #192851 !important;
+}
+
 .input-box {
     border-color: #68D9CF;
 }
