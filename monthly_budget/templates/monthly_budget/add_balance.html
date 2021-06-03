@@ -4,7 +4,7 @@
 
 <form method="POST" action="balance">
     {% csrf_token %}
-    {{ balanceForm.as_p }}
+    {{ balanceForm.as_table }}
     <div class="">
         <p>
             <button class="btn colour-reverse positioning" type="submit"><strong class="colour-reverse positioning">Add balance</strong></button>
