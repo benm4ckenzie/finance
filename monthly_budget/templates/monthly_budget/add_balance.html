@@ -1,13 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<h3 class="m-4" style="text-align: center;">Account balances</h3>
 <form method="POST" action="balance">
     {% csrf_token %}
-    {{ balanceForm.as_table }}
-    <div class="">
+    <div class="row m-4">
+        <div class="col-4">
+            <label class="positioning-left" for="id_joint_account_balance">Joint: </label>
+        </div>
+        <div class="col-8">
+            <input class="positioning input-box" class="colour-true" type="value" name="joint_account_balance" id="id_joint_account_balance" required>
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col-4">
+            <label class="positioning-left" for="id_personal_account_balance">Personal: </label>
+        </div>
+        <div class="col-8">
+            <input class="positioning input-box" type="value" name="personal_account_balance" id="id_personal_account_balance" required>
+        </div>
+    </div>
+    <div class="m-4">
         <p>
-            <button class="btn colour-reverse positioning" type="submit"><strong class="colour-reverse positioning">Add balance</strong></button>
+            <button class="btn colour-reverse positioning rounded-0" type="submit"><strong class="colour-reverse positioning">Add balance</strong></button>
         </p>
     </div>
 </form>

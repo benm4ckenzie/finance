@@ -20,8 +20,23 @@ html {
 .positioning {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-content: center !important;
     width: 100%;
+}
+
+.positioning-right {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center !important;
+    width: 100%;
+}
+
+.positioning-left {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    width: 100%;
+    margin: 0 !important;
 }
 
 .modal-table-content-positioning{
@@ -36,6 +51,10 @@ html {
 .colour-reverse {
     background-color: #68D9CF !important;
     color: #192851 !important;
+}
+
+.input-box {
+    border-color: #68D9CF;
 }
 
 .payment-made {
