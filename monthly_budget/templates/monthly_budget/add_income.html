@@ -1,15 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<h3 class="m-4" style="text-align: center;">Add income</h3>
 <form method="POST" action="income">
     {% csrf_token %}
-    {{ incomeForm.as_p }}
-    <div class="">
+    <div class="row m-4">
+        <div class="col-4">
+            <label class="positioning-left" for="id_income_stream">Income stream: </label>
+        </div>
+        <div class="col-8">
+            <input class="positioning input-box" type="text" placeholder="" name="income_stream" id="id_income_stream" required>
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col-4">
+            <label class="positioning-left" for="id_income_amount">Amount: </label>
+        </div>
+        <div class="col-8">
+            <input class="positioning input-box" type="value" placeholder="£" name="income_amount" id="id_income_amount" required>
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col-4">
+            <label class="positioning-left" for="id_has_recieved">Recieved: </label>
+        </div>
+        <div class="col-8">
+            <input class="positioning input-box" type="checkbox" placeholder="" name="has_recieved" id="id_has_recieved">
+        </div>
+    </div>
+    <div class="m-4">
         <p>
-            <button class="btn colour-reverse positioning" type="submit"><strong class="colour-reverse positioning">Add income</strong></button>
+            <button class="btn button-colour positioning fixed-bottom rounded-0" style="margin-bottom: 51px;" type="submit"><strong class="button-colour positioning">Add income</strong></button>
         </p>
     </div>
 </form>
 
 {% endblock %}
+

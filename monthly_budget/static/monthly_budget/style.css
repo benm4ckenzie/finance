@@ -29,12 +29,13 @@ html {
     justify-content: flex-end;
     align-content: center !important;
     width: 100%;
+    margin: 0 !important;
 }
 
 .positioning-left {
     display: flex;
     justify-content: flex-start;
-    align-content: center;
+    align-content: center !important;
     width: 100%;
     margin: 0 !important;
 }
@@ -55,7 +56,6 @@ html {
 
 .button-colour {
     background-color: #D96871 !important;
-    color: #192851 !important;
 }
 
 .input-box {
