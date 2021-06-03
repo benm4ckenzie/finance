@@ -5,26 +5,19 @@
 <form method="POST" action="balance">
     {% csrf_token %}
     <div class="row m-4">
-        <div class="col-4">
-            <label class="positioning-left" for="id_joint_account_balance">Joint: </label>
-        </div>
-        <div class="col-8">
-            <input class="positioning input-box" type="value" placeholder="£" name="joint_account_balance" id="id_joint_account_balance" required>
+        <div class="col">
+            <input class="positioning input-box" type="value" placeholder="Joint account balance" name="joint_account_balance" id="id_joint_account_balance" required>
         </div>
     </div>
     <div class="row m-4">
-        <div class="col-4">
-            <label class="positioning-left" for="id_personal_account_balance">Personal: </label>
-        </div>
         <div class="col-8">
-            <input class="positioning input-box" type="value" placeholder="£" name="personal_account_balance" id="id_personal_account_balance" required>
+            <input class="positioning input-box" type="value" placeholder="Personal account balance" name="personal_account_balance" id="id_personal_account_balance" required>
         </div>
     </div>
     <div class="m-4">
         <p>
-            <button class="btn button-colour positioning fixed-bottom rounded-0" style="margin-bottom: 51px;" type="submit"><strong class="button-colour positioning">Add balance</strong></button>
+            <button class="btn button-colour positioning fixed-bottom rounded-0" style="margin-bottom: 51px;" type="submit"><strong class="button-colour positioning">Add balances</strong></button>
         </p>
     </div>
 </form>
-
 {% endblock %}

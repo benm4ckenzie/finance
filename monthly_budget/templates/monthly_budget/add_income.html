@@ -5,27 +5,13 @@
 <form method="POST" action="income">
     {% csrf_token %}
     <div class="row m-4">
-        <div class="col-4">
-            <label class="positioning-left" for="id_income_stream">Income stream: </label>
-        </div>
-        <div class="col-8">
-            <input class="positioning input-box" type="text" placeholder="" name="income_stream" id="id_income_stream" required>
+        <div class="col">
+            <input class="positioning input-box" type="text" placeholder="Income stream" name="income_stream" id="id_income_stream" required>
         </div>
     </div>
     <div class="row m-4">
-        <div class="col-4">
-            <label class="positioning-left" for="id_income_amount">Amount: </label>
-        </div>
         <div class="col-8">
-            <input class="positioning input-box" type="value" placeholder="£" name="income_amount" id="id_income_amount" required>
-        </div>
-    </div>
-    <div class="row m-4">
-        <div class="col-4">
-            <label class="positioning-left" for="id_has_recieved">Recieved: </label>
-        </div>
-        <div class="col-8">
-            <input class="positioning input-box" type="checkbox" placeholder="" name="has_recieved" id="id_has_recieved">
+            <input class="positioning input-box" type="value" placeholder="Income amount" name="income_amount" id="id_income_amount" required>
         </div>
     </div>
     <div class="m-4">
@@ -34,6 +20,5 @@
         </p>
     </div>
 </form>
-
 {% endblock %}
 

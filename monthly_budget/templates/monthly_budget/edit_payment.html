@@ -1,16 +1,48 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-    <h1>Edit a payment</h1>
-
-    <form method="POST">
-        {% csrf_token %}
-        {{ editPaymentForm.as_p }}
-        <div class="">
-            <p>
-                <button class="btn colour-reverse positioning" type="submit"><strong class="colour-reverse positioning">Update payment</strong></button>
-            </p>
+<h3 class="m-4" style="text-align: center;">Edit payment</h3>
+<form method="POST">
+    {% csrf_token %}
+    <div class="row m-4">
+        <div class="col">
+            <input class="positioning input-box" type="text" placeholder="Payment category" name="payment_category" id="id_payment_category" required>
         </div>
-    </form>
+    </div>
+    <div class="row m-4">
+        <div class="col">
+            <input class="positioning input-box" type="text" placeholder="Payment account" name="payment_account" id="id_payment_account" required>
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col">
+            <input class="positioning input-box" type="text" placeholder="Payment owner" name="payment_owner" id="id_payment_owner" required>
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col">
+            <input class="positioning input-box" type="value" placeholder="Payment date" name="payment_date" id="id_payment_date" required>
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col">
+            <input class="positioning input-box" type="value" placeholder="Instalment amount" name="instalment_amount" id="id_instalment_amount" required>
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col">
+            <input class="positioning input-box" type="text" placeholder="Payment recipient" name="payment_recipient" id="id_payment_recipient" required>
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col">
+            <input class="positioning input-box" type="text" placeholder="Payment completion date" onfocus="(this.type='date')" onblur="(this.type='text')" name="payment_completion_date" id="id_payment_completion_date">
+        </div>
+    </div>
+    <div class="m-4">
+        <p>
+            <button class="btn button-colour positioning fixed-bottom rounded-0" style="margin-bottom: 51px;" type="submit"><strong class="button-colour positioning">Edit payment</strong></button>
+        </p>
+    </div>
+</form>
 {% endblock %}
