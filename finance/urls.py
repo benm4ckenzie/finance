@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url, include
 from monthly_budget import views
 
 urlpatterns = [
@@ -31,5 +32,6 @@ urlpatterns = [
     path('has_recieved/<income_id>', views.has_recieved, name='has_recieved'),
     path('delete_income/<income_id>', views.delete_income, name='delete_income'),
     path('balance', views.add_balance, name='balance'),
-    path('edit_balance/<balance_id>', views.edit_balance, name='edit_balance')
+    path('edit_balance/<balance_id>', views.edit_balance, name='edit_balance'),
+    url('accounts/', include('allauth.urls')),
 ]
