@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-  <h3 class="m-4" style="text-align: center;">Edit payment</h3>
-
-    <form method="POST">
-        {% csrf_token %}
-        {{ editPaymentForm.as_p }}
-        <div class="">
-            <p>
+<h3 class="m-4" style="text-align: center;">Edit payment</h3>
+<form method="POST">
+    {% csrf_token %}
+    {{ editPaymentForm.as_p }}
+    <div class="">
+        <p>
             <button class="btn button-colour positioning fixed-bottom rounded-0" style="margin-bottom: 51px;" type="submit"><strong class="button-colour positioning">Edit payment</strong></button>
-            </p>
-        </div>
-    </form>
+        </p>
+    </div>
+</form>
 {% endblock %}

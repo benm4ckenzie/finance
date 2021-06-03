@@ -20,7 +20,7 @@ html {
 .positioning {
     display: flex;
     justify-content: center;
-    align-content: center !important;
+    align-content: center;
     width: 100%;
 }
 
