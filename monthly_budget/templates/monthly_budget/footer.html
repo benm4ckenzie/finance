@@ -57,54 +57,54 @@
                 <h3 class="modal-title rounded-0 border-0 colour-reverse positioning" id="accountCalculatorModalTitle"><strong class="colour-reverse positioning">Accounts</strong></h3>
             </div>
             <div class="modal-body rounded-0 border-0 colour-reverse">
-                <h5 class="colour-reverse"><strong class="colour-reverse">Still to be paid this month: £{{ remainingMonthlyPaymentsTotal }}</strong></h5>
+                <h5 class="colour-reverse" style="text-align: center;"><strong class="colour-reverse">Still to be paid this month: £{{ remainingMonthlyPaymentsTotal }}</strong></h5>
             </div>
-            <div class="modal-body rounded-0 border-0 colour-reverse">
+            <div class="modal-body rounded-0 border-0 colour-reverse"  style="text-align: center;">
                 <table class="colour-reverse">
-                <tr class="colour-reverse">
-                    <td class="colour-reverse p-2">
-                    </td>
-                    <td class="colour-reverse p-2" style="text-align: center;">
-                    Joint
-                    </td>
-                    <td class="colour-reverse p-2" style="text-align: center;">
-                    Personal
-                    </td>
-                </tr>
-                <tr class="colour-reverse">
-                    <td class="colour-reverse p-2" style="text-align: right;">
-                        Outstanding:
-                    </td>
-                    <td class="colour-reverse p-2" style="text-align: center;">
-                    £{{ remainingMonthlyPaymentsJoint }}
-                    </td>
-                    <td class="colour-reverse p-2" style="text-align: center;">
-                    £{{ remainingMonthlyPaymentsBen }}
-                    </td>
-                </tr>
-                <tr class="colour-reverse">
-                    <td class="colour-reverse p-2" style="text-align: right;">
-                        Balance:
-                    </td>
-                    <td class="colour-reverse p-2" style="text-align: center;">
-                    £{{ balance.joint_account_balance }}
-                    </td>
-                    <td class="colour-reverse p-2" style="text-align: center;">
-                    £{{ balance.personal_account_balance }}
-                    </td>
-                </tr>
-                <tr class="colour-reverse">
-                    <td class="colour-reverse p-2" style="text-align: right;">
-                        Difference:
-                    </td>
-                    <td class="colour-reverse p-2" style="text-align: center;">
-                    £{{ jointAccountRequirement }}
-                    </td>
-                    <td class="colour-reverse p-2" style="text-align: center;">
-                    £{{ personalAccountRequirement }}
-                    </td>
-                </tr>
-            </table>
+                    <tr class="colour-reverse">
+                        <td class="colour-reverse p-2">
+                        </td>
+                        <td class="colour-reverse p-2" style="text-align: center;">
+                        Joint
+                        </td>
+                        <td class="colour-reverse p-2" style="text-align: center;">
+                        Personal
+                        </td>
+                    </tr>
+                    <tr class="colour-reverse">
+                        <td class="colour-reverse p-2" style="text-align: right;">
+                            Outstanding:
+                        </td>
+                        <td class="colour-reverse p-2" style="text-align: center;">
+                        £{{ remainingMonthlyPaymentsJoint }}
+                        </td>
+                        <td class="colour-reverse p-2" style="text-align: center;">
+                        £{{ remainingMonthlyPaymentsBen }}
+                        </td>
+                    </tr>
+                    <tr class="colour-reverse">
+                        <td class="colour-reverse p-2" style="text-align: right;">
+                            Balance:
+                        </td>
+                        <td class="colour-reverse p-2" style="text-align: center;">
+                        £{{ balance.joint_account_balance }}
+                        </td>
+                        <td class="colour-reverse p-2" style="text-align: center;">
+                        £{{ balance.personal_account_balance }}
+                        </td>
+                    </tr>
+                    <tr class="colour-reverse">
+                        <td class="colour-reverse p-2" style="text-align: right;">
+                            Difference:
+                        </td>
+                        <td class="colour-reverse p-2" style="text-align: center;">
+                        £{{ jointAccountRequirement }}
+                        </td>
+                        <td class="colour-reverse p-2" style="text-align: center;">
+                        £{{ personalAccountRequirement }}
+                        </td>
+                    </tr>
+                </table>
             </div>
             <div class="modal-footer rounded-0 border-0 colour-reverse positioning">
                  <a href="/edit_balance/{{ balance.id }}">
