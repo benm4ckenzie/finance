@@ -4,17 +4,8 @@
 <h3 class="m-4" style="text-align: center;">Edit income</h3>
 <form method="POST">
     {% csrf_token %}
-    <div class="row m-4">
-        <div class="col">
-            <input class="positioning input-box" type="text" placeholder="Income stream" name="income_stream" id="id_income_stream" required>
-        </div>
-    </div>
-    <div class="row m-4">
-        <div class="col-8">
-            <input class="positioning input-box" type="value" placeholder="Income amount" name="income_amount" id="id_income_amount" required>
-        </div>
-    </div>
-    <div class="m-4">
+    {{ editIncomeForm.as_p }}
+    <div class="">
         <p>
             <button class="btn button-colour positioning fixed-bottom rounded-0" style="margin-bottom: 51px;" type="submit"><strong class="button-colour positioning">Edit income</strong></button>
         </p>
