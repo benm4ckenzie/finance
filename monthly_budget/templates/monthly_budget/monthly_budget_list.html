@@ -22,11 +22,11 @@
 
     {% if payment.has_paid %}
     <div class="col-3 payment-detail-boxes payment-made">
-        {{ payment.instalment_amount }}
+        £{{ payment.instalment_amount }}
     </div>
     {% else %}
     <div class="col-3 payment-detail-boxes">
-        {{ payment.instalment_amount }}
+        £{{ payment.instalment_amount }}
     </div>
     {% endif %}
 </div>
