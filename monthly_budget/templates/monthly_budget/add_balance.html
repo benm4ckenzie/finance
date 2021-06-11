@@ -2,22 +2,17 @@
 
 {% block content %}
 <h3 class="m-4" style="text-align: center;">Account balances</h3>
-<form method="POST" action="balance">
-    {% csrf_token %}
-    <div class="row m-4">
-        <div class="col">
-            <input class="positioning input-box" type="value" placeholder="Joint account balance" name="joint_account_balance" id="id_joint_account_balance" required>
+<div class="">
+    <form method="POST" action="balance">
+        {% csrf_token %}
+        <div class="form-group">
+        {{ balanceForm.as_p }}
         </div>
-    </div>
-    <div class="row m-4">
-        <div class="col">
-            <input class="positioning input-box" type="value" placeholder="Personal account balance" name="personal_account_balance" id="id_personal_account_balance" required>
+        <div class="m-4">
+            <p>
+                <button class="btn button-colour positioning fixed-bottom rounded-0" style="margin-bottom: 51px;" type="submit"><strong class="button-colour positioning">Add balances</strong></button>
+            </p>
         </div>
-    </div>
-    <div class="m-4">
-        <p>
-            <button class="btn button-colour positioning fixed-bottom rounded-0" style="margin-bottom: 51px;" type="submit"><strong class="button-colour positioning">Add balances</strong></button>
-        </p>
-    </div>
-</form>
+    </form>
+</div>  
 {% endblock %}

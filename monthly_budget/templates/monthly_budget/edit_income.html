@@ -2,13 +2,17 @@
 
 {% block content %}
 <h3 class="m-4" style="text-align: center;">Edit income</h3>
-<form method="POST">
-    {% csrf_token %}
-    {{ editIncomeForm.as_p }}
-    <div class="">
-        <p>
-            <button class="btn button-colour positioning fixed-bottom rounded-0" style="margin-bottom: 51px;" type="submit"><strong class="button-colour positioning">Edit income</strong></button>
-        </p>
-    </div>
-</form>
+<div class="">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+        {{ editIncomeForm.as_p }}
+        </div>
+        <div class="">
+            <p>
+                <button class="btn button-colour positioning fixed-bottom rounded-0" style="margin-bottom: 51px;" type="submit"><strong class="button-colour positioning">Edit income</strong></button>
+            </p>
+        </div>
+    </form>
+</div>
 {% endblock %}

@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     "monthly_budget",
     'allauth',
     'allauth.account',
-    'allauth.socialaccount'
+    'allauth.socialaccount',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
