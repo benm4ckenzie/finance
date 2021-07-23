@@ -6,8 +6,8 @@ html {
 }
 
 * {
-    background-color: #192851;
-    color: white;
+    background-color: white;
+    color: #10559A;
     font-family: 'Alegreya Sans', sans-serif;
     font-weight: bolder;
 }
@@ -45,21 +45,22 @@ html {
 }
 
 .colour-true {
-    background-color: #192851 !important;
-    color: #68D9CF !important;
+    background-color: white !important;
+    color: #10559A !important;
 }
 
 .colour-reverse {
-    background-color: #68D9CF !important;
-    color: #192851 !important;
+    background-color: #10559A !important;
+    color:white !important;
 }
 
 .button-colour {
     background-color: #D96871 !important;
+    color:white !important;
 }
 
 .input-box {
-    border-color: #68D9CF;
+    border-color: #F9C6D7;
 }
 
 .payment-made {
@@ -75,11 +76,11 @@ html {
 }
 
 .navbar-dropdown{
-    background-color: #68D9CF !important;
+    background-color: #10559A !important;
 }
 
 .dropdown-menu {
-    background-color: #68D9CF !important;
+    background-color: #10559A !important;
     width: 100%;
     margin: 0 !important;
     padding: 0px !important;
@@ -100,7 +101,7 @@ html {
 }
 
 .payment-options {
-    border-bottom: 4px dotted #68D9CF;
+    border-bottom: 4px dotted #F9C6D7;
     padding-bottom: 10px;
 }
 
