@@ -8,11 +8,11 @@ from .forms import PaymentForm, IncomeForm, BalanceForm
 
 def get_monthly_budget_list(request):
     payments = Payment.objects.all().order_by('payment_date')
-    if request.GET.get('accountPaymentSelection'):
-        accountPaymentSelection_filter = request.GET.get('accountPaymentSelection')
-        accountPayment = payments.filter(payment_account=accountPaymentSelection_filter)
-    else:
-        payments = Payment.objects.all().order_by('payment_date')
+    #if request.GET.get('accountPaymentSelection'):
+    #    accountPaymentSelection_filter = request.GET.get('accountPaymentSelection')
+    #    accountPayment = payments.filter(payment_account=accountPaymentSelection_filter)
+    #else:
+        #payments = Payment.objects.all().order_by('payment_date')
     incomes = Income.objects.all()
     balances = Balance.objects.all()
     sumOfPayments = payments.aggregate(Sum('instalment_amount'))['instalment_amount__sum']
@@ -36,7 +36,7 @@ def get_monthly_budget_list(request):
         'remainingMonthlyPaymentsTotal': remainingMonthlyPaymentsTotal,
         'remainingMonthlyPaymentsJoint': remainingMonthlyPaymentsJoint,
         'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
-        'accountPayment': accountPayment
+        #'accountPayment': accountPayment
     }
     return render(request, 'monthly_budget/monthly_budget_list.html', context)
 

@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form action="{% url 'get_monthly_budget_list' %}" method="get">
+<!--<form action="{% url 'get_monthly_budget_list' %}" method="get">
     <label for="accountPaymentSelection">Selecy Account</label>
     <select name="accountPaymentSelection">
         <option value="Starling (Joint)" />Starling (Joint)</option>
         <option value="Starling (Ben personal)" />Starling (Ben personal)</option>
     <input type="submit" name="accountPaymentSelection" value="Filter" />
-</form>   
+</form>   -->
 {% for payment in payments %} 
 <div class="row payment-details">
     <div class="col-1 payment-detail-boxes">
