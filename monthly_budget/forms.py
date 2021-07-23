@@ -1,6 +1,23 @@
 from django import forms
 from .models import Payment, Income, Balance
 
+account_choices=[('Starling (Joint)', 'Starling (Joint)'),
+                 ('Starling (Ben personal)', 'Starling (Ben personal)'),
+                 ]
+
+owner_choices=[('Household', 'Household'),
+('Benjamin Mackenzie', 'Benjamin Mackenzie'),
+('Katie Bedford', 'Katie Bedford'),]
+
+category_choices=[('HOusehold', 'Household'),
+('Vehicle', 'Vehicle'),
+('Phone', 'Phone'),
+('Savings', 'Savings'),
+('Subscription', 'Subscription'),
+('HMRC', 'HMRC'),
+('Medical', 'Medical'),
+('Fitness', 'Fitness'),
+]
 
 class PaymentForm(forms.ModelForm):
     class Meta:
@@ -15,8 +32,11 @@ class PaymentForm(forms.ModelForm):
                   'has_paid']
         widgets = {
             'payment_category': forms.TextInput(attrs={'class': 'form-control'}),
+            'payment_category': forms.Select(choices=category_choices),
             'payment_account': forms.TextInput(attrs={'class': 'form-control'}),
+            'payment_account': forms.Select(choices=account_choices),
             'payment_owner': forms.TextInput(attrs={'class': 'form-control'}),
+            'payment_owner': forms.Select(choices=owner_choices),
             'payment_date': forms.TextInput(attrs={'class': 'form-control'}),
             'instalment_amount': forms.TextInput(attrs={'class': 'form-control'}),
             'payment_recipient': forms.TextInput(attrs={'class': 'form-control'}),
