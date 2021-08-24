@@ -18,8 +18,8 @@ def get_monthly_budget_list(request):
     sumOfPayments = payments.aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     sumOfIncome = incomes.aggregate(Sum('income_amount'))['income_amount__sum']
     remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))['instalment_amount__sum']
-    remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'), 0.00)['instalment_amount__sum']
-    remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'), 0.00)['instalment_amount__sum']
+    remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     differenceBetweenIncomeAndPayments = sumOfIncome - sumOfPayments
     jointAccountBalance = balances.aggregate(Sum('joint_account_balance'))['joint_account_balance__sum']
     personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
