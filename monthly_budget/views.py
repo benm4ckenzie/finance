@@ -43,24 +43,24 @@ def get_monthly_income_list(request):
     sumOfIncome = incomes.aggregate(Sum('income_amount'))['income_amount__sum']
     remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
-    remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    #remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     differenceBetweenIncomeAndPayments = sumOfIncome - sumOfPayments
     jointAccountBalance = balances.aggregate(Sum('joint_account_balance'))['joint_account_balance__sum']
-    personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
+    #personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
     jointAccountRequirement = jointAccountBalance - remainingMonthlyPaymentsJoint
-    personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
+    #personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
     context = {
         'payments': payments,
         'balances': balances,
         'incomes': incomes,
         'sumOfPayments': sumOfPayments,
         'sumOfIncome': sumOfIncome,
-        'personalAccountRequirement': personalAccountRequirement,
+        #'personalAccountRequirement': personalAccountRequirement,
         'jointAccountRequirement': jointAccountRequirement,
         'differenceBetweenIncomeAndPayments': differenceBetweenIncomeAndPayments,
         'remainingMonthlyPaymentsTotal': remainingMonthlyPaymentsTotal,
         'remainingMonthlyPaymentsJoint': remainingMonthlyPaymentsJoint,
-        'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen
+        #'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen
     }
     return render(request, 'monthly_budget/monthly_income_list.html', context)
 
@@ -79,24 +79,24 @@ def add_payment(request):
     sumOfIncome = incomes.aggregate(Sum('income_amount'))['income_amount__sum']
     remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
-    remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    #remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     differenceBetweenIncomeAndPayments = sumOfIncome - sumOfPayments
     jointAccountBalance = balances.aggregate(Sum('joint_account_balance'))['joint_account_balance__sum']
-    personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
+    #personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
     jointAccountRequirement = jointAccountBalance - remainingMonthlyPaymentsJoint
-    personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
+    #personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
     context = {
         'payments': payments,
         'balances': balances,
         'incomes': incomes,
         'sumOfPayments': sumOfPayments,
         'sumOfIncome': sumOfIncome,
-        'personalAccountRequirement': personalAccountRequirement,
+        #'personalAccountRequirement': personalAccountRequirement,
         'jointAccountRequirement': jointAccountRequirement,
         'differenceBetweenIncomeAndPayments': differenceBetweenIncomeAndPayments,
         'remainingMonthlyPaymentsTotal': remainingMonthlyPaymentsTotal,
         'remainingMonthlyPaymentsJoint': remainingMonthlyPaymentsJoint,
-        'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
+        #'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
         'paymentForm': paymentForm
     }
     return render(request, 'monthly_budget/add_payment.html', context)
@@ -117,24 +117,24 @@ def edit_payment(request, payment_id):
     sumOfIncome = incomes.aggregate(Sum('income_amount'))['income_amount__sum']
     remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
-    remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    #remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     differenceBetweenIncomeAndPayments = sumOfIncome - sumOfPayments
     jointAccountBalance = balances.aggregate(Sum('joint_account_balance'))['joint_account_balance__sum']
-    personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
+    #personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
     jointAccountRequirement = jointAccountBalance - remainingMonthlyPaymentsJoint
-    personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
+    #personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
     context = {
         'payments': payments,
         'balances': balances,
         'incomes': incomes,
         'sumOfPayments': sumOfPayments,
         'sumOfIncome': sumOfIncome,
-        'personalAccountRequirement': personalAccountRequirement,
+        #'personalAccountRequirement': personalAccountRequirement,
         'jointAccountRequirement': jointAccountRequirement,
         'differenceBetweenIncomeAndPayments': differenceBetweenIncomeAndPayments,
         'remainingMonthlyPaymentsTotal': remainingMonthlyPaymentsTotal,
         'remainingMonthlyPaymentsJoint': remainingMonthlyPaymentsJoint,
-        'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
+        #'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
         'editPaymentForm': editPaymentForm
     }
     return render(request, 'monthly_budget/edit_payment.html', context)
@@ -167,24 +167,24 @@ def add_income(request):
     sumOfIncome = incomes.aggregate(Sum('income_amount'))['income_amount__sum']
     remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
-    remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    #remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     differenceBetweenIncomeAndPayments = sumOfIncome - sumOfPayments
     jointAccountBalance = balances.aggregate(Sum('joint_account_balance'))['joint_account_balance__sum']
-    personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
+    #personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
     jointAccountRequirement = jointAccountBalance - remainingMonthlyPaymentsJoint
-    personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
+    #personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
     context = {
         'payments': payments,
         'balances': balances,
         'incomes': incomes,
         'sumOfPayments': sumOfPayments,
         'sumOfIncome': sumOfIncome,
-        'personalAccountRequirement': personalAccountRequirement,
+        #'personalAccountRequirement': personalAccountRequirement,
         'jointAccountRequirement': jointAccountRequirement,
         'differenceBetweenIncomeAndPayments': differenceBetweenIncomeAndPayments,
         'remainingMonthlyPaymentsTotal': remainingMonthlyPaymentsTotal,
         'remainingMonthlyPaymentsJoint': remainingMonthlyPaymentsJoint,
-        'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
+        #'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
         'incomeForm': incomeForm
     }
     return render(request, 'monthly_budget/add_income.html', context)
@@ -205,24 +205,24 @@ def edit_income(request, income_id):
     sumOfIncome = incomes.aggregate(Sum('income_amount'))['income_amount__sum']
     remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
-    remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    #remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     differenceBetweenIncomeAndPayments = sumOfIncome - sumOfPayments
     jointAccountBalance = balances.aggregate(Sum('joint_account_balance'))['joint_account_balance__sum']
-    personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
+    #personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
     jointAccountRequirement = jointAccountBalance - remainingMonthlyPaymentsJoint
-    personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
+    #personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
     context = {
         'payments': payments,
         'balances': balances,
         'incomes': incomes,
         'sumOfPayments': sumOfPayments,
         'sumOfIncome': sumOfIncome,
-        'personalAccountRequirement': personalAccountRequirement,
+        #'personalAccountRequirement': personalAccountRequirement,
         'jointAccountRequirement': jointAccountRequirement,
         'differenceBetweenIncomeAndPayments': differenceBetweenIncomeAndPayments,
         'remainingMonthlyPaymentsTotal': remainingMonthlyPaymentsTotal,
         'remainingMonthlyPaymentsJoint': remainingMonthlyPaymentsJoint,
-        'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
+        #'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
         'editIncomeForm': editIncomeForm
     }
     return render(request, 'monthly_budget/edit_income.html', context)
@@ -255,24 +255,24 @@ def add_balance(request):
     sumOfIncome = incomes.aggregate(Sum('income_amount'))['income_amount__sum']
     remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
-    remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    #remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     differenceBetweenIncomeAndPayments = sumOfIncome - sumOfPayments
     jointAccountBalance = balances.aggregate(Sum('joint_account_balance'))['joint_account_balance__sum']
-    personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
+    #personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
     jointAccountRequirement = jointAccountBalance - remainingMonthlyPaymentsJoint
-    personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
+    #personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
     context = {
         'payments': payments,
         'balances': balances,
         'incomes': incomes,
         'sumOfPayments': sumOfPayments,
         'sumOfIncome': sumOfIncome,
-        'personalAccountRequirement': personalAccountRequirement,
+        #'personalAccountRequirement': personalAccountRequirement,
         'jointAccountRequirement': jointAccountRequirement,
         'differenceBetweenIncomeAndPayments': differenceBetweenIncomeAndPayments,
         'remainingMonthlyPaymentsTotal': remainingMonthlyPaymentsTotal,
         'remainingMonthlyPaymentsJoint': remainingMonthlyPaymentsJoint,
-        'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
+        #'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
         'balanceForm': balanceForm
     }
     return render(request, 'monthly_budget/add_balance.html', context)
@@ -293,24 +293,24 @@ def edit_balance(request, balance_id):
     sumOfIncome = incomes.aggregate(Sum('income_amount'))['income_amount__sum']
     remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
-    remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    #remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     differenceBetweenIncomeAndPayments = sumOfIncome - sumOfPayments
     jointAccountBalance = balances.aggregate(Sum('joint_account_balance'))['joint_account_balance__sum']
-    personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
+    #personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
     jointAccountRequirement = jointAccountBalance - remainingMonthlyPaymentsJoint
-    personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
+    #personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
     context = {
         'payments': payments,
         'balances': balances,
         'incomes': incomes,
         'sumOfPayments': sumOfPayments,
         'sumOfIncome': sumOfIncome,
-        'personalAccountRequirement': personalAccountRequirement,
+        #'personalAccountRequirement': personalAccountRequirement,
         'jointAccountRequirement': jointAccountRequirement,
         'differenceBetweenIncomeAndPayments': differenceBetweenIncomeAndPayments,
         'remainingMonthlyPaymentsTotal': remainingMonthlyPaymentsTotal,
         'remainingMonthlyPaymentsJoint': remainingMonthlyPaymentsJoint,
-        'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
+        #'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
         'editBalanceForm': editBalanceForm
     }
     return render(request, 'monthly_budget/edit_balance.html', context)
