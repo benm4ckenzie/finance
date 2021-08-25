@@ -8,35 +8,29 @@ from .forms import PaymentForm, IncomeForm, BalanceForm
 
 def get_monthly_budget_list(request):
     payments = Payment.objects.all().order_by('payment_date')
-    #if request.GET.get('accountPaymentSelection'):
-    #    accountPaymentSelection_filter = request.GET.get('accountPaymentSelection')
-    #    accountPayment = payments.filter(payment_account=accountPaymentSelection_filter)
-    #else:
-        #payments = Payment.objects.all().order_by('payment_date')
     incomes = Income.objects.all()
     balances = Balance.objects.all()
     sumOfPayments = payments.aggregate(Sum('instalment_amount'))['instalment_amount__sum']
     sumOfIncome = incomes.aggregate(Sum('income_amount'))['income_amount__sum']
     remainingMonthlyPaymentsTotal = payments.filter(has_paid=False).aggregate(Sum('instalment_amount'))['instalment_amount__sum']
-    remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'), 0.00)['instalment_amount__sum']
-    remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'), 0.00)['instalment_amount__sum']
+    remainingMonthlyPaymentsJoint = payments.filter(has_paid=False, payment_account='Starling (Joint)').aggregate(Sum('instalment_amount'))['instalment_amount__sum']
+    #remainingMonthlyPaymentsBen = payments.filter(has_paid=False, payment_account='Starling (Ben personal)').aggregate(Sum('instalment_amount'), 0.00)['instalment_amount__sum']
     differenceBetweenIncomeAndPayments = sumOfIncome - sumOfPayments
     jointAccountBalance = balances.aggregate(Sum('joint_account_balance'))['joint_account_balance__sum']
-    personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
+    #personalAccountBalance = balances.aggregate(Sum('personal_account_balance'))['personal_account_balance__sum']
     jointAccountRequirement = jointAccountBalance - remainingMonthlyPaymentsJoint
-    personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
+    #personalAccountRequirement = personalAccountBalance - remainingMonthlyPaymentsBen
     context = {
         'payments': payments,
         'balances': balances,
         'sumOfPayments': sumOfPayments,
         'sumOfIncome': sumOfIncome,
-        'personalAccountRequirement': personalAccountRequirement,
+        #'personalAccountRequirement': personalAccountRequirement,
         'jointAccountRequirement': jointAccountRequirement,
         'differenceBetweenIncomeAndPayments': differenceBetweenIncomeAndPayments,
         'remainingMonthlyPaymentsTotal': remainingMonthlyPaymentsTotal,
         'remainingMonthlyPaymentsJoint': remainingMonthlyPaymentsJoint,
-        'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
-        #'accountPayment': accountPayment
+        #'remainingMonthlyPaymentsBen': remainingMonthlyPaymentsBen,
     }
     return render(request, 'monthly_budget/monthly_budget_list.html', context)
 
