@@ -22,7 +22,7 @@
     </div>
     {% else %}
     <div class="col-8 payment-detail-boxes">
-        {{ payment.payment_recipient }}
+        <strong>{{ payment.payment_recipient }}</strong>
     </div>
     {% endif %}
 
@@ -32,7 +32,7 @@
     </div>
     {% else %}
     <div class="col-3 payment-detail-boxes">
-        £{{ payment.instalment_amount }}
+       <strong>£{{ payment.instalment_amount }}</strong>
     </div>
     {% endif %}
 </div>
