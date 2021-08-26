@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300&display=swap');
-
-html {
-  margin: 0;
-  overscroll-behavior: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400&display=swap');
 
 * {
     background-color: white;
     color: #10559A;
-    font-family: 'Alegreya Sans', sans-serif;
-    font-weight: bolder;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+
+html {
+  margin: 0;
+  overscroll-behavior: none;
 }
 
 .container-fluid {
@@ -46,11 +46,11 @@ html {
 
 .colour-true {
     background-color: white !important;
-    color: #10559A !important;
+    color: black !important;
 }
 
 .colour-reverse {
-    background-color: #10559A !important;
+    background-color: black !important;
     color:white !important;
 }
 
@@ -60,11 +60,11 @@ html {
 }
 
 .input-box {
-    border-color: #F9C6D7;
+    border-color: gray;
 }
 
 .payment-made {
-    color: #F9C6D7;
+    color: gray;
 }
 
 .dropdown {
@@ -76,11 +76,11 @@ html {
 }
 
 .navbar-dropdown{
-    background-color: #10559A !important;
+    background-color: black !important;
 }
 
 .dropdown-menu {
-    background-color: #10559A !important;
+    background-color: black !important;
     width: 100%;
     margin: 0 !important;
     padding: 0px !important;
@@ -95,13 +95,14 @@ html {
 }
 
 .payment-detail-boxes {
+    color: black;
     display: flex;
     align-items: center;
     justify-content: flex-start; 
 }
 
 .payment-options {
-    border-bottom: 4px dotted #F9C6D7;
+    border-bottom: 4px dotted gray;
     padding-bottom: 10px;
 }
 

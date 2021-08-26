@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400&display=swap');
 
 * {
-    background-color: #192851;
-    color: white;
-    font-family: 'Alegreya Sans', sans-serif;
-    font-weight: bolder;
+    background-color: white;
+    color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
 }
 
 h1 {
