@@ -2,7 +2,7 @@
 
 * {
     background-color: white;
-    color: #10559A;
+    color: black;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
 }
@@ -111,6 +111,14 @@ html {
     align-items: center;
 }
 
+.home-page-link{
+    color: gray;
+    font-size: 25px;
+}
+
+.home-page-title{
+    font-size: 30px;
+}
 
 
 

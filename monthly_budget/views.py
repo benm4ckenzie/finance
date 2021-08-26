@@ -5,6 +5,8 @@ from .forms import PaymentForm, IncomeForm, BalanceForm
 
 # Create your views here.
 
+def home_page(request):
+    return render(request, '/workspace/finance/monthly_budget/templates/home_page.html')
 
 def get_monthly_budget_list(request):
     payments = Payment.objects.all().order_by('payment_date')

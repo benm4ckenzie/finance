@@ -15,15 +15,24 @@
 
 <body>
 
-    
-    {% include "monthly_budget/navbar.html" %}
-    <div class="container-fluid">
-    {% block content %}
-    {% endblock %}
+<div class="container-fluid">
+    <div class="row justify-content-center" style="margin-top: 30vh">
+        <div class="col-12 text-center">
+            <img src="../../static/img/bills-tick-180.png">
+        </div>
     </div>
-    {% include "monthly_budget/footer.html" %}
+    <div class="row justify-content-center mt-2">
+        <div class="col-12 text-center">
+            <p class="colour-true"><strong class="home-page-title">Pay your bills on time</strong></p>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5 pt-5">
+        <div class="col-12 text-center">
+            <a href="/monthly_budget_list"><strong class="home-page-link">Let's go...</strong></a>
+        </div>
+    </div>
+</div>
     
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
