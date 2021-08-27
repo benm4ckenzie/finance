@@ -1,15 +1,11 @@
 from django import forms
 from .models import Payment, Income, Balance
 
-account_choices=[('Starling (Joint)', 'Starling (Joint)'),
-                 ('Starling (Ben personal)', 'Starling (Ben personal)'),
-                 ]
-
 owner_choices=[('Household', 'Household'),
 ('Benjamin Mackenzie', 'Benjamin Mackenzie'),
 ('Katie Bedford', 'Katie Bedford'),]
 
-category_choices=[('HOusehold', 'Household'),
+category_choices=[('Household', 'Household'),
 ('Vehicle', 'Vehicle'),
 ('Phone', 'Phone'),
 ('Savings', 'Savings'),
@@ -23,7 +19,6 @@ class PaymentForm(forms.ModelForm):
     class Meta:
         model = Payment
         fields = ['payment_category',
-                  'payment_account',
                   'payment_owner',
                   'payment_date',
                   'instalment_amount',
@@ -33,8 +28,6 @@ class PaymentForm(forms.ModelForm):
         widgets = {
             'payment_category': forms.TextInput(attrs={'class': 'form-control'}),
             'payment_category': forms.Select(choices=category_choices),
-            'payment_account': forms.TextInput(attrs={'class': 'form-control'}),
-            'payment_account': forms.Select(choices=account_choices),
             'payment_owner': forms.TextInput(attrs={'class': 'form-control'}),
             'payment_owner': forms.Select(choices=owner_choices),
             'payment_date': forms.TextInput(attrs={'class': 'form-control'}),
@@ -57,9 +50,8 @@ class IncomeForm(forms.ModelForm):
 class BalanceForm(forms.ModelForm):
     class Meta:
         model = Balance
-        fields = ['joint_account_balance',
-                  'personal_account_balance']
+        fields = ['joint_account_balance']
         widgets = {
-            'joint_account_balance': forms.TextInput(attrs={'class': 'form-control'}),
-            'personal_account_balance': forms.TextInput(attrs={'class': 'form-control'})
+            'joint_account_balance': forms.TextInput(attrs={'class': 'form-control'})
+           
         }

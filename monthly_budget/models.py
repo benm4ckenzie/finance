@@ -4,7 +4,6 @@ from django.db import models
 
 class Payment(models.Model):
     payment_category = models.CharField(max_length=50, null=False, blank=False)
-    payment_account = models.CharField(max_length=50, null=False, blank=False)
     payment_owner = models.CharField(max_length=50, null=False, blank=False)
     payment_date = models.IntegerField(null=False, blank=False)
     instalment_amount = models.DecimalField(max_digits=6, decimal_places=2, blank=False)
@@ -27,7 +26,6 @@ class Income(models.Model):
 
 class Balance(models.Model):
     joint_account_balance = models.DecimalField(max_digits=7, decimal_places=2, null=False, blank=True)
-    personal_account_balance = models.DecimalField(max_digits=7, decimal_places=2, null=False, blank=True)
 
     def __str__(self):
         return str(self.joint_account_balance)
